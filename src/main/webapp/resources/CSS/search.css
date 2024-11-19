@@ -1,0 +1,57 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Nov 16, 2024, 9:09:26 AM
+    Author     : Dilum
+*/
+
+
+.search-container {
+    width: 300px;
+}
+
+#search-input {
+    height: 30px !important;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    margin-top: -10px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1E1E1E;
+    z-index: 999;
+    width: 320px;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    color: white !important;
+}
+
+.dropdown-content a:hover {
+    background-color: black;
+}
+
+.dropdown-content img {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+}
+
+.dropdown-content .actions {
+    margin-left: auto;
+    color: gray;
+}

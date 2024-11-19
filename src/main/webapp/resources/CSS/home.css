@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: black !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slider{
+    position: relative; 
+    width: 100%;
+    overflow: hidden;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 10px;
+}
+
+
+.slider img{
+    width: 100%;  
+    display: none;
+}
+
+img.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 2s;
+}
+
+.slider button{
+    border-radius: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 5px 15px 5px 15px;
+    background-color: #212020;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.prev{
+    left: 0;
+}
+
+.next{
+    right: 0;
+}
+
+@keyframes fade {
+    from {opacity: .5}
+    to {opacity: 1}
+}
+
+#sliderLink, #sliderPage {
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.5rem 0.75rem;
+}
+  
+#sliderLink span::before, #sliderPage span::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0%;
+    width: 2px;
+    background-color: #ffffff;
+    transition: height 0.5s ease-in-out;
+}
+  
+#sliderLink span::after, #sliderPage span::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0%;
+    width: 2px;
+    background-color: #ffffff;
+    transition: height 0.5s ease-in-out;
+}
+  
+#sliderLink::before, #sliderPage::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    transform: translateX(-105%);
+    transition: transform 0.5s ease-in-out;
+}
+  
+#sliderLink::after, #sliderPage::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    transform: translateX(105%);
+    transition: transform 0.5s ease-in-out;
+}
+  
+#sliderLink:hover::after, #sliderPage:hover::after,
+#sliderLink:hover::before, #sliderPage:hover::before {
+    transform: translateX(0);
+}
+  
+  #sliderLink:hover span::before, #sliderPage:hover span::before,
+  #sliderLink:hover span::after, #sliderPage:hover span::after {
+    height: 100%;
+}
+  
+
+.more img{
+    display:inline ;
+    width: 50px !important;
+}
+
+.nowShow{
+    padding-top: 2vw;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 4%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding-bottom: 3vw;
+}
+
+.comingSoon{
+    padding-top: 2vw;
+    display: flex;
+    justify-content: space-around;
+    gap: 4%;
+    flex-wrap: wrap;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-bottom: 3vw;
+}
+
+div h1{
+    color: white;
+    font-weight: 300;
+    padding-top: 5%;
+    padding-bottom: 1vw;
+    padding-left: 5%;
+}
+
+div .big{
+    padding-top: 1.5px;
+    color: white;
+    font-size: 20px;
+}
+
+div .small{
+    font-weight: 200;
+    color: white;
+    font-size: 15px;
+    padding-bottom: 35px;
+}
+
+.hov{
+    transition: transform 0.3s;
+}
+
+.hov:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.more{
+    font-size: 2.5em; 
+    font-weight: 400; 
+    color: white;
+    position: absolute;
+    bottom: 10%;
+    left: 10%;
+}
+
+.more span{
+    font-weight: 400;
+}
+
+
+@media(max-width:585px){
+    div h1{
+        color: white;
+        font-weight: 300;
+        padding-top: 5%;
+        padding-bottom: 2vw;
+        text-align: center;
+        padding-right: 5%;
+    }
+
+    div .small, div .big{
+        text-align: center;
+    }
+
+    .more{
+        font-size: 25px;
+    }
+    
+    #sliderLink, #sliderPage {
+        font-size: 15px;
+    }
+
+    .more img{
+        display:inline ;
+        width: 30px !important;
+    }
+}
+
