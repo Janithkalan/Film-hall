@@ -1,0 +1,371 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: black !important;
+    font-family: 'Poppins', sans-serif;
+}
+
+.im {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.im img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.im::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.655); 
+    pointer-events: none;
+    z-index: 1;
+}
+
+
+.details {
+    position: absolute;
+    bottom: 6%;
+    left: 2.5%;
+    color: white; 
+    font-size: 2.5em; 
+    font-weight: 300; 
+    z-index: 2; 
+}
+
+.details .small{
+    font-size: 0.47em;
+    font-weight: 600;
+}
+
+.imdb {
+    position: absolute;
+    top: 5%;
+    right: 2.5%;
+    color: white; 
+    font-size: 0.9em; 
+    font-weight: 400; 
+    z-index: 2; 
+}
+
+.imdb img{
+    display:inline ;
+    width: 30px !important;
+    padding-right: 5px;
+}
+
+.trailer img{
+    display:inline ;
+    width: 40px !important;
+    padding-right: 10px;
+}
+
+
+#trail {
+    color: white; 
+    font-size: 1em; 
+    font-weight: 500; 
+    text-decoration: none;
+    position: absolute;
+    bottom: 7.5%;
+    right: 2.5%;
+    display: inline-block;
+    overflow: hidden;
+    padding: 0.5rem 0.75rem;
+    z-index: 2; 
+}
+  
+#trail span::before{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 0%;
+    width: 2px;
+    background-color: #ffffff;
+    transition: height 0.5s ease-in-out;
+}
+  
+#trail span::after{
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 0%;
+    width: 2px;
+    background-color: #ffffff;
+    transition: height 0.5s ease-in-out;
+}
+  
+#trail::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    transform: translateX(-105%);
+    transition: transform 0.5s ease-in-out;
+}
+  
+#trail::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    transform: translateX(105%);
+    transition: transform 0.5s ease-in-out;
+}
+  
+#trail:hover::after, #trail:hover::before {
+    transform: translateX(0);
+}
+  
+#trail:hover span::before, #trail:hover span::after{
+    height: 100%;
+}
+
+h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #ffffff !important;
+    font-weight: 300 !important;
+    font-size: 2.5em !important;
+}
+
+.cell{
+    display: flex;
+}
+
+.drop{
+    padding-left: 50px !important;
+    padding-bottom: 2%;
+}
+
+.dropdown-cell img{
+    display:inline !important;
+    width: 40px !important;
+}
+
+td {
+    color: #ffffff;
+    border: 1px solid rgb(255, 255, 255)!important;
+    border-collapse: collapse;
+  }
+
+.dropdown-cell {
+    position: relative;
+    padding: 10px;
+    /* border: 1px solid #000000;
+    border-radius: 5px; */
+    background-color: #000000;
+    width: 200px;
+    cursor: pointer;
+}
+
+
+select {
+    color: #ffffff;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-color: #000000;
+    border: none;
+    padding: 10px 10px 10px 5px;
+    padding-right: 15px;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+}
+
+#movie{
+    margin-right: 0px;
+}
+
+select:focus {
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.dropdown-cell::after {
+    content: "▼"; 
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.date_movie{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.word{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 1%;
+    padding-right: 8%;
+    column-gap: 2rem;
+}
+
+#available{
+    color:#177A11;
+}
+
+#sold{
+    color:#8C2525;
+}
+
+#lapsed{
+    color:#696161;
+}
+
+.location{
+    color: #ffffff;
+    display: flex;
+    font-size: 15px;
+    padding-left: 3%;
+    font-weight: 500;
+    column-gap: 1rem;
+    padding-bottom: 2%;
+}
+
+.location img{
+    padding-top: 2px;
+}
+
+.category{
+    color: #ffffff;
+    display: flex;
+    padding-left: 4%;
+    font-weight: 700;
+    column-gap: 1rem;
+}
+
+.category img{
+    padding-top: 2px;
+}
+
+.time{
+    padding-top: 1%;
+    padding-left: 4%;
+    padding-bottom: 2%;
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 3rem;
+}
+
+.time button{
+    background-color: #000000;
+    padding:5px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.time button:hover{
+    cursor: pointer;
+}
+
+.available{
+    color:#177A11;
+    border:1px solid #177A11;
+    transition: all 0.3s ease;
+}
+
+.available:hover {
+    color: #000000;
+    background-color: #177A11;
+}
+
+.sold{
+    color:#8C2525;
+    border:1px solid #8C2525;
+    transition: all 0.3s ease;
+}
+
+.sold:hover {
+    color: #000000;
+    background-color: #8C2525;
+}
+
+.lapsed{
+    color:#696161;
+    border:1px solid #696161;
+    transition: all 0.3s ease;
+}
+
+.lapsed:hover {
+    color: #000000;
+    background-color: #696161;
+}
+
+@media(max-width:778px){
+    h1{
+        font-size: 2rem !important;
+    }
+
+    .word{
+        padding-top: 4%;
+        padding-bottom: 2%;
+    }
+
+    .big{
+        font-size: 25px;
+    }
+
+    .small{
+        font-size: 12px !important;
+    }
+}
+
+
+@media(max-width:585px){
+    .word{
+        padding-top: 4%;
+        padding-bottom: 2%;
+    }
+
+    .big{
+        font-size: 20px;
+    }
+
+    .small{
+        font-size: 10px !important;
+    }
+
+    #trail{
+        font-size: 10px !important;
+    }
+
+    .trailer img{
+        display:inline ;
+        width: 25px !important;
+        padding-right: 10px;
+    }
+
+    .imdb {
+        font-size: 12px; 
+    }
+    
+    .imdb img{
+        width: 30px !important;
+    }
+}
