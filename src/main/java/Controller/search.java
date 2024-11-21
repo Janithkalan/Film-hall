@@ -36,17 +36,16 @@ public class search extends HttpServlet {
 
         try {
             ResultSet resultSet = ConnectionDB.execute("SELECT * FROM movies WHERE name LIKE '%" + textResult + "%'");
-            if (resultSet.next()) {
-                while (resultSet.next()) {
-                    Movie_DTO movie_DTO = new Movie_DTO();
+            while (resultSet.next()) { 
+                Movie_DTO movie_DTO = new Movie_DTO();
+                movie_DTO.setId(resultSet.getInt("idmovies"));
+                movie_DTO.setName(resultSet.getString("name"));
+                search_result_list.add(movie_DTO);
+            }
 
-                    movie_DTO.setId(resultSet.getInt("idmovies"));
-                    movie_DTO.setName(resultSet.getString("name"));
-
-                    search_result_list.add(movie_DTO);
-                    responseObject.add("movie_list", gson.toJsonTree(search_result_list));
-                    responseObject.addProperty("success", true);
-                }
+            if (!search_result_list.isEmpty()) {
+                responseObject.add("movie_list", gson.toJsonTree(search_result_list));
+                responseObject.addProperty("success", true);
             } else {
                 responseObject.addProperty("success", false);
             }
