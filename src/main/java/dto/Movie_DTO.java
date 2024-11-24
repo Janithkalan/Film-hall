@@ -6,21 +6,24 @@ package dto;
 
 import java.io.Serializable;
 
-public class Movie_DTO implements Serializable{
-    
+public class Movie_DTO implements Serializable {
+
     private int id;
-    
+
     private String name;
-    
+
     private String genre;
-    
+
     private String ratings;
 
+    private String movie_description;
+
+    private String trailer_link;
+
     public Movie_DTO() {
-        
+
     }
-    
-   
+
     /**
      * @return the id
      */
@@ -76,5 +79,33 @@ public class Movie_DTO implements Serializable{
     public void setRatings(String ratings) {
         this.ratings = ratings;
     }
-    
+
+    /**
+     * @return the movie_description
+     */
+    public String getMovie_description() {
+        return movie_description;
+    }
+
+    /**
+     * @param movie_description the movie_description to set
+     */
+    public void setMovie_description(String movie_description) {
+        this.movie_description = movie_description;
+    }
+
+    /**
+     * @return the trailer_link
+     */
+    public String getTrailer_link() {
+        return trailer_link;
+    }
+
+    /**
+     * @param trailer_link the trailer_link to set
+     */
+    public void setTrailer_link(String trailer_link) {
+        this.trailer_link = trailer_link;
+    }
+
 }

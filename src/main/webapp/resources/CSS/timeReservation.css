@@ -46,6 +46,7 @@ body {
 }
 
 .imdb {
+    display: flex;
     position: absolute;
     top: 5%;
     right: 2.5%;
@@ -55,20 +56,27 @@ body {
     z-index: 2; 
 }
 
+.imdb_text{
+    margin-top: 3px;
+}
+
 .imdb img{
-    display:inline ;
     width: 30px !important;
     padding-right: 5px;
 }
 
+.trailer{
+    display: flex;
+}
+
 .trailer img{
-    display:inline ;
     width: 40px !important;
     padding-right: 10px;
+    margin-top: -6px;
 }
 
 
-#trail {
+.trail {
     color: white; 
     font-size: 1em; 
     font-weight: 500; 
@@ -82,7 +90,7 @@ body {
     z-index: 2; 
 }
   
-#trail span::before{
+.trail span::before{
     content: "";
     position: absolute;
     bottom: 0;
@@ -93,7 +101,7 @@ body {
     transition: height 0.5s ease-in-out;
 }
   
-#trail span::after{
+.trail span::after{
     content: "";
     position: absolute;
     top: 0;
@@ -104,7 +112,7 @@ body {
     transition: height 0.5s ease-in-out;
 }
   
-#trail::before{
+.trail::before{
     content: "";
     position: absolute;
     left: 0;
@@ -116,7 +124,7 @@ body {
     transition: transform 0.5s ease-in-out;
 }
   
-#trail::after{
+.trail::after{
     content: "";
     position: absolute;
     right: 0;
@@ -128,11 +136,11 @@ body {
     transition: transform 0.5s ease-in-out;
 }
   
-#trail:hover::after, #trail:hover::before {
+.trail:hover::after, .trail:hover::before {
     transform: translateX(0);
 }
   
-#trail:hover span::before, #trail:hover span::after{
+.trail:hover span::before, .trail:hover span::after{
     height: 100%;
 }
 
@@ -275,7 +283,7 @@ select:focus {
 
 .time button{
     background-color: #000000;
-    padding:5px 20px;
+    padding:10px 20px;
     border-radius: 5px;
     margin-bottom: 10px;
 }
@@ -351,7 +359,7 @@ select:focus {
         font-size: 10px !important;
     }
 
-    #trail{
+    .trail{
         font-size: 10px !important;
     }
 
