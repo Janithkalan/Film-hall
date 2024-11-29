@@ -37,6 +37,7 @@
         <button class="next" onclick="nextSlide()">&#10095</button>
     </div>
     <div><h1>NOW SHOWING</h1></div>
+    <div>
     <div class="nowShow" id="div1">
         <div class="hov" id="div2">
             <a href="#" id="href1">
@@ -46,10 +47,12 @@
             </div>
         </div>
     </div>
+    </div>    
     <div style="background-color: #0D0D0D;">
         <div>
             <h1>COMING SOON</h1>
         </div>
+        <div>
         <div class="comingSoon" id="updiv1">
             <div class="hov" id="updiv2">
                 <a href="#">
@@ -58,6 +61,7 @@
                     <div class="small">IN CINEMAS 8TH NOVEMBER</div>
                 </div>
             </div>   
+        </div>
         </div>
     </div>
     <script src="resources/JS/home.js"></script>
