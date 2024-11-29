@@ -37,8 +37,6 @@ public class timeReservation extends HttpServlet {
         ArrayList timeReservationDetails = new ArrayList();
         ArrayList timeTableDetails = new ArrayList();
         
-        String today_date = request.getParameter("today_date");
-        String selectedId = request.getParameter("selectedId");
         
 
         try {
@@ -63,7 +61,8 @@ public class timeReservation extends HttpServlet {
                     + "INNER JOIN hall_table ON time_table.hall_table_id = hall_table.id "
                     + "INNER JOIN movies ON time_table.movies_idmovies = movies.idmovies "
                     + "INNER JOIN month_table ON time_table.month_table_id = month_table.id "
-                    + "INNER JOIN weekdays ON month_table.weekdays_id = weekdays.id");
+                    + "INNER JOIN weekdays ON month_table.weekdays_id = weekdays.id "
+                    + "ORDER BY month_table.id ASC");
             
             while (resultSet2.next()) {
                 

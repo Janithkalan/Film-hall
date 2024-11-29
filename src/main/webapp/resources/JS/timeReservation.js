@@ -47,15 +47,15 @@ async function timeReservationDetails() {
                 }
                 date_dropdown.innerHTML = "";
                 let addedDates = new Set();
-                    json.timeTableDetails.forEach(schedule => {
-                        if (schedule.movie_id === selectedId && !addedDates.has(schedule.date)) {
-                            addedDates.add(schedule.date);
-                            let option = document.createElement("option");
-                            option.value = schedule.date;
-                            option.text = `${schedule.day} ${schedule.date} ${month}`;
-                            date_dropdown.appendChild(option);
-                        }
-                    });
+                json.timeTableDetails.forEach(schedule => {
+                    if (schedule.movie_id === selectedId && !addedDates.has(schedule.date)) {  // && schedule.date >= today_date
+                        addedDates.add(schedule.date);                                         // add this code later inside the if condition
+                        let option = document.createElement("option");
+                        option.value = schedule.date;
+                        option.text = `${schedule.day} ${schedule.date} ${month}`;
+                        date_dropdown.appendChild(option);
+                    }
+                });
 
             });
 
@@ -151,3 +151,25 @@ document.getElementById("date_dropdown").addEventListener("change", () => {
 document.getElementById("movie_dropdown").addEventListener("change", () => {
     loadBtn();
 });
+
+
+function navigate_hall(current_hall) {
+
+    var current_movie = document.getElementById("movie_dropdown").value;
+    var current_date = document.getElementById("date_dropdown").value;
+    
+    if (current_hall === 1){
+        var current_time = document.getElementById("imax_btn").innerHTML;
+    } else if (current_hall === 2){
+        var current_time = document.getElementById("gold_btn").innerHTML;
+    } else if (current_hall === 3){
+        var current_time = document.getElementById("digital_btn").innerHTML;
+    }
+    
+    
+    window.location.href = "seatReservation.jsp?param1=" + encodeURIComponent(current_movie) + 
+            "&param2=" + encodeURIComponent(current_date)+ 
+            "&param3=" + encodeURIComponent(current_time)+ 
+            "&param4=" + encodeURIComponent(current_hall);
+
+}

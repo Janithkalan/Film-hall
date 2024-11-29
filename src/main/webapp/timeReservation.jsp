@@ -75,7 +75,7 @@
             <div><img src="resources/IMG/digital.png" alt=""></div>
         </div>
         <div class="time" id="digital">
-            <button id="digital_btn" class="available">10:45 AM</button>
+            <button id="digital_btn" class="available" onclick="navigate_hall(3)">10:45 AM</button>
         </div>
     </div>
     <div>
@@ -84,7 +84,7 @@
             <div><img src="resources/IMG/gold.png" alt=""></div>
         </div>
         <div class="time" id="gold">
-            <button id="gold_btn" class="available">11:45 AM</button>
+            <button id="gold_btn" class="available" onclick="navigate_hall(2)">11:45 AM</button>
         </div>
     </div>
     <div>
@@ -93,20 +93,10 @@
             <div><img src="resources/IMG/imax.png" alt=""></div>
         </div>
         <div class="time" id="imax">
-            <button id="imax_btn" class="available">11:45 AM</button>
+            <button id="imax_btn" class="available" onclick="navigate_hall(1)">11:45 AM</button>
         </div>
     </div>
-<!--    <script>
-        const selectElement = document.getElementById("date");
-    
-        selectElement.addEventListener("change", function() {
-            if (selectElement.value === "13") {
-                selectElement.value = "today";
-            } else {
-                selectElement.options[0].hidden = true;
-            }
-        });
-    </script>-->
+
     <script src="resources/JS/timeReservation.js"></script>
     
 </body>
