@@ -74,43 +74,39 @@ document.querySelectorAll(".seat").forEach(function (seat) {
 
 async function loadSeats(current_movie, current_date, current_time, current_hall) {
 
-    const response = await fetch("seatReservation?current_date="+current_date+"&current_time="+current_time+"&current_movie="+current_movie+"&current_hall="+current_hall);
+    const response = await fetch("seatReservation?current_date=" + current_date + "&current_time=" + current_time + "&current_movie=" + current_movie + "&current_hall=" + current_hall);
 
     if (response.ok) {
         const json = await response.json();
 
         if (json.success) {
-            
-           document.getElementById("movie_name").innerHTML = json.movie_name;
-           document.getElementById("hall_name").innerHTML = json.hall_name;
-           document.getElementById("time_name").innerHTML = json.show_time;
 
-            
-           console.log(current_movie);
-           console.log(current_date);
-           console.log(current_time);
-           console.log(current_hall);
-           console.log(json);
-           console.log("is ok");
-           
+            document.getElementById("movie_name").innerHTML = json.movie_name;
+            document.getElementById("hall_name").innerHTML = json.hall_name;
+            document.getElementById("time_name").innerHTML = current_time;
+
+
             json.seatReservationDetails.forEach(reservation => {
-                
-//                if (reservation.seat_status === 4) {
-//                    let x = document.getElementById("" + seat_id + "");
-//                    x.classList.add("pendingSeat");
-//
-//                } else if (reservation.seat_status === 2) {
-//
-//                    let x = document.getElementById("" + seat_id + "");
-//                    x.classList.add("unavailableSeat");
-//
-//
-//                } else if (reservation.seat_status === 3) {
-//
-//                    let x = document.getElementById("" + seat_id + "");
-//                    x.classList.add("reservedSeat");
-//
-//                }
+
+                if (reservation.seat_status === 4) {
+                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
+                    temp_btn.classList.add("pendingSeat");
+                    temp_btn.disabled = true;
+
+                } else if (reservation.seat_status === 2) {
+
+                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
+                    temp_btn.classList.add("unavailableSeat");
+                    temp_btn.disabled = true;
+
+
+                } else if (reservation.seat_status === 3) {
+
+                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
+                    temp_btn.classList.add("reservedSeat");
+                    temp_btn.disabled = true;
+
+                }
 
 
 
@@ -124,4 +120,51 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 
     }
 
+}
+
+
+async function seatReservationProcess(current_movie, current_date, current_time, current_hall) {
+    
+    const reservation_dto = {
+        hall_table_id: current_hall,
+        screen_times_id: current_time,
+        month_table_id: current_date,
+        movies_idmovies: current_movie,
+        seat_status: 3
+    };
+
+    const response = await fetch(
+            "seatReservationInsert",
+            {
+                method: "POST",
+                body: JSON.stringify(reservation_dto),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }
+
+    );
+    if (response.ok) {
+
+        const json = await response.json();
+
+        if (json.success) {
+
+//            swal("", "Success!", "success").then(() => {
+//                window.location = "";
+//            });
+            swal({
+                title: "",
+                text: "ok",
+                icon: "success"
+            });
+
+        } else {
+            swal({
+                title: "",
+                text: json.message,
+                icon: "error"
+            });
+        }
+    }
 }

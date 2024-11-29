@@ -10,22 +10,23 @@ import java.io.Serializable;
  *
  * @author Dilum
  */
-public class SeatReservationDetails_DTO implements Serializable{
-    
+public class SeatReservationDetails_DTO implements Serializable {
+
     private int invoice;
-    
+
     private String seat_id;
-    
+
     private int seat_status;
-    
+
     private int hall_id;
-    
+
     private int time;
-    
+
     private int date;
-    
+
     private int movie_id;
-    
+
+    private int price;
 
     /**
      * @return the invoice
@@ -124,6 +125,19 @@ public class SeatReservationDetails_DTO implements Serializable{
     public void setMovie_id(int movie_id) {
         this.movie_id = movie_id;
     }
-    
-    
+
+    /**
+     * @return the price
+     */
+    public int getPrice() {
+        return price;
+    }
+
+    /**
+     * @param price the price to set
+     */
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
 }

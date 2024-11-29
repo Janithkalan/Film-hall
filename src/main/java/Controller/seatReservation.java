@@ -43,7 +43,7 @@ public class seatReservation extends HttpServlet {
         
         try {
             ResultSet resultSet = ConnectionDB.execute(""
-                    + "SELECT seat_reservation.invoice, seat.id, seat_status.id, hall_table.id, screen_times.id, month_table.id, movies.idmovies "
+                    + "SELECT seat_reservation.invoice, seat.id, seat_status.id, hall_table.id, screen_times.id, month_table.id, movies.idmovies, seat_price.price AS price "
                     + "FROM seat_reservation "
                     + "INNER JOIN seat ON seat_reservation.seat_id = seat.id "
                     + "INNER JOIN hall_table ON seat_reservation.hall_table_id = hall_table.id "
@@ -51,10 +51,11 @@ public class seatReservation extends HttpServlet {
                     + "INNER JOIN month_table ON seat_reservation.month_table_id = month_table.id "
                     + "INNER JOIN movies ON seat_reservation.movies_idmovies = movies.idmovies "
                     + "INNER JOIN seat_status ON seat_reservation.seat_status_id = seat_status.id "
-                    + "WHERE seat_reservation.month_table_id = '1' "
-                    + "AND screen_times.show_time LIKE '10:00AM%' "
-                    + "AND movies.idmovies = '2' "
-                    + "AND hall_table.id = '1'");
+                    + "INNER JOIN seat_price ON seat_reservation.hall_table_id = seat_price.id "
+                    + "WHERE seat_reservation.month_table_id = '"+current_date+"' "
+                    + "AND screen_times.show_time LIKE '"+current_time+"%' "
+                    + "AND movies.idmovies = '"+current_movie+"' "
+                    + "AND hall_table.id = '"+current_hall+"'");
 
             while (resultSet.next()) {
 
@@ -66,15 +67,21 @@ public class seatReservation extends HttpServlet {
                 seatReservationDetails_DTO.setTime(resultSet.getInt("screen_times.id"));
                 seatReservationDetails_DTO.setDate(resultSet.getInt("month_table.id"));
                 seatReservationDetails_DTO.setMovie_id(resultSet.getInt("movies.idmovies"));
+                seatReservationDetails_DTO.setPrice(resultSet.getInt("price"));
                 
                 seatReservationDetails.add(seatReservationDetails_DTO);
 
             }
-            
             ResultSet resultSet2 = ConnectionDB.execute("SELECT movies.name FROM movies WHERE movies.idmovies = '"+current_movie+"'");
+            if(resultSet2.next()){
+                responseJson.addProperty("movie_name", resultSet2.getString("movies.name"));
+            }
+            
             ResultSet resultSet3 = ConnectionDB.execute("SELECT hall_table.hall_name FROM hall_table WHERE hall_table.id = '"+current_hall+"'");
-            responseJson.addProperty("movie_name", resultSet2.getString("movies.name"));
-            responseJson.addProperty("hall_name", resultSet3.getString("hall_table.hall_name"));
+            if(resultSet3.next()){
+                responseJson.addProperty("hall_name", resultSet3.getString("hall_table.hall_name"));
+            }
+            
             
             
 

@@ -561,13 +561,13 @@
                     </div>
                     <div class="total">
                         <p style="font-size: 15px;"><b>TOTAL</b><br> [LKR]</p>
-                        <p class="Amount">4,000.00</p>
+                        <p class="Amount" id="total_price">4,000.00</p>
                     </div>
                 </div>
                 <hr style="margin-top: 10px; margin-bottom: 10px;">
                 <div class="submit_btn">
                     <button class="btn1" style="margin-right: 5px;">BACK</button>
-                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;">CONTINUE</button>
+                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie %>,<%= current_date %>,'<%= current_time %>',<%= current_hall %>)">CONTINUE</button>
                 </div>
             </div>
         </div>
