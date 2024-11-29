@@ -71,9 +71,6 @@ document.querySelectorAll(".seat").forEach(function (seat) {
 
 //--------------------------------------------------------------------------------------------
 
-let temp_date = 1;
-let temp_hall = 1;
-let temp_time = 1;
 
 async function loadSeats(current_movie, current_date, current_time, current_hall) {
 

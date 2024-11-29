@@ -11,35 +11,40 @@ import javax.mail.internet.MimeMessage;
 
 public class Mail {
 
-    private static final String APP_EMAIL = "batzyyt4@gmail.com";
-    private static final String APP_PASSWORD = "iuzsasqiktnarmrd";
+    private static final String APP_EMAIL = "batzyyt4@gmail.com"; 
+    private static final String APP_PASSWORD = "iuzsasqiktnarmrd"; 
 
     public static void sendMail(String email, String subject, String content) {
-
+        
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
         props.put("mail.smtp.host", "smtp.gmail.com");
         props.put("mail.smtp.port", "587");
 
-        Session session = Session.getInstance(props,
-                new javax.mail.Authenticator() {
+        
+        Session session = Session.getInstance(props, new javax.mail.Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
                 return new PasswordAuthentication(Mail.APP_EMAIL, Mail.APP_PASSWORD);
             }
         });
 
         try {
+           
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(Mail.APP_EMAIL));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(email));
             message.setSubject(subject);
-            message.setText(content);
 
+            
+            message.setContent(content, "text/html; charset=utf-8");
+
+            
             Transport.send(message);
             System.out.println("Email sent successfully!");
 
         } catch (MessagingException e) {
+            System.err.println("Failed to send email: " + e.getMessage());
             throw new RuntimeException(e);
         }
     }

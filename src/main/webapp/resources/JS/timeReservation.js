@@ -171,5 +171,5 @@ function navigate_hall(current_hall) {
             "&param2=" + encodeURIComponent(current_date)+ 
             "&param3=" + encodeURIComponent(current_time)+ 
             "&param4=" + encodeURIComponent(current_hall);
-
+    
 }

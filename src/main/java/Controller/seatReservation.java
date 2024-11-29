@@ -51,10 +51,10 @@ public class seatReservation extends HttpServlet {
                     + "INNER JOIN month_table ON seat_reservation.month_table_id = month_table.id "
                     + "INNER JOIN movies ON seat_reservation.movies_idmovies = movies.idmovies "
                     + "INNER JOIN seat_status ON seat_reservation.seat_status_id = seat_status.id "
-                    + "WHERE seat_reservation.month_table_id = '" + current_date + "' "
-                    + "AND screen_times.show_time LIKE '" + current_time + "%' "
-                    + "AND movies.idmovies = '" + current_movie + "' "
-                    + "AND hall_table.id = '" + current_hall + "'");
+                    + "WHERE seat_reservation.month_table_id = '1' "
+                    + "AND screen_times.show_time LIKE '10:00AM%' "
+                    + "AND movies.idmovies = '2' "
+                    + "AND hall_table.id = '1'");
 
             while (resultSet.next()) {
 
