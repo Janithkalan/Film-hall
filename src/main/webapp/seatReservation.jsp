@@ -311,192 +311,194 @@
                         <table>
                             <tr>
                                 <td><button class="seat" id="A1">A1</button></td>
-                                <td><button class="seat" onclick="setTable(A2)" id="A2">A2</button></td>
-                                <td><button class="seat" onclick="setTable(A3)" id="A3">A3</button></td>
-                                <td><button class="seat" onclick="setTable(A4)" id="A4">A4</button></td>
-                                <td><button class="seat" onclick="setTable(A5)" id="A5">A5</button></td>
+                                <td><button class="seat" id="A2">A2</button></td>
+                                <td><button class="seat" id="A3">A3</button></td>
+                                <td><button class="seat" id="A4">A4</button></td>
+                                <td><button class="seat" id="A5">A5</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(D1)" id="D1">D1</button></td>
-                                <td><button class="seat" onclick="setTable(D2)" id="D2">D2</button></td>
-                                <td><button class="seat" onclick="setTable(D3)" id="D3">D3</button></td>
-                                <td><button class="seat" onclick="setTable(D4)" id="D4">D4</button></td>
-                                <td><button class="seat" onclick="setTable(D5)" id="D5">D5</button></td>
+                                <td><button class="seat" id="D1">D1</button></td>
+                                <td><button class="seat" id="D2">D2</button></td>
+                                <td><button class="seat" id="D3">D3</button></td>
+                                <td><button class="seat" id="D4">D4</button></td>
+                                <td><button class="seat" id="D5">D5</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(E8)" id="E8">E8</button></td>
-                                <td><button class="seat" onclick="setTable(E9)" id="E9">E9</button></td>
-                                <td><button class="seat" onclick="setTable(F1)" id="F1">F1</button></td>
-                                <td><button class="seat" onclick="setTable(F2)" id="F2">F2</button></td>
-                                <td><button class="seat" onclick="setTable(F3)" id="F3">F3</button></td>
+                                <td><button class="seat" id="E8">E8</button></td>
+                                <td><button class="seat" id="E9">E9</button></td>
+                                <td><button class="seat" id="F1">F1</button></td>
+                                <td><button class="seat" id="F2">F2</button></td>
+                                <td><button class="seat" id="F3">F3</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(G6)" id="G6">G6</button></td>
-                                <td><button class="seat" onclick="setTable(G7)" id="G7">G7</button></td>
-                                <td><button class="seat" onclick="setTable(G8)" id="G8">G8</button></td>
-                                <td><button class="seat" onclick="setTable(G9)" id="G9">G9</button></td>
-                                <td><button class="seat" onclick="setTable(H1)" id="H1">H1</button></td>
+                                <td><button class="seat" id="G6">G6</button></td>
+                                <td><button class="seat" id="G7">G7</button></td>
+                                <td><button class="seat" id="G8">G8</button></td>
+                                <td><button class="seat" id="G9">G9</button></td>
+                                <td><button class="seat" id="H1">H1</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(I4)" id="I4">I4</button></td>
-                                <td><button class="seat" onclick="setTable(I5)" id="I5">I5</button></td>
-                                <td><button class="seat" onclick="setTable(I6)" id="I6">I6</button></td>
-                                <td><button class="seat" onclick="setTable(I7)" id="I7">I7</button></td>
-                                <td><button class="seat" onclick="setTable(I8)" id="I8">I8</button></td>
+                                <td><button class="seat" id="I4">I4</button></td>
+                                <td><button class="seat" id="I5">I5</button></td>
+                                <td><button class="seat" id="I6">I6</button></td>
+                                <td><button class="seat" id="I7">I7</button></td>
+                                <td><button class="seat" id="I8">I8</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(K2)" id="K2">K2</button></td>
-                                <td><button class="seat" onclick="setTable(K3)" id="K3">K3</button></td>
-                                <td><button class="seat" onclick="setTable(K4)" id="K4">K4</button></td>
-                                <td><button class="seat" onclick="setTable(K5)" id="K5">K5</button></td>
-                                <td><button class="seat" onclick="setTable(K6)" id="K6">K6</button></td>
-                            </tR>
-                            <tr>
-                                <td><button class="seat" onclick="setTable(L9)" id="L9">L9</button></td>
-                                <td><button class="seat" onclick="setTable(M1)" id="M1">M1</button></td>
-                                <td><button class="seat" onclick="setTable(M2)" id="M2">M2</button></td>
-                                <td><button class="seat" onclick="setTable(M3)" id="M3">M3</button></td>
-                                <td><button class="seat" onclick="setTable(M4)" id="M4">M4</button></td>
+                                <td><button class="seat" id="K2">K2</button></td>
+                                <td><button class="seat" id="K3">K3</button></td>
+                                <td><button class="seat" id="K4">K4</button></td>
+                                <td><button class="seat" id="K5">K5</button></td>
+                                <td><button class="seat" id="K6">K6</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(N7)" id="N7">N7</button></td>
-                                <td><button class="seat" onclick="setTable(N8)" id="N8">N8</button></td>
-                                <td><button class="seat" onclick="setTable(N9)" id="N9">N9</button></td>
-                                <td><button class="seat" onclick="setTable(O1)" id="O1">O1</button></td>
-                                <td><button class="seat" onclick="setTable(O2)" id="O2">O2</button></td>
+                                <td><button class="seat" id="L9">L9</button></td>
+                                <td><button class="seat" id="M1">M1</button></td>
+                                <td><button class="seat" id="M2">M2</button></td>
+                                <td><button class="seat" id="M3">M3</button></td>
+                                <td><button class="seat" id="M4">M4</button></td>
                             </tr>
                             <tr>
-                                <td><button class="seat" onclick="setTable(P5)" id="P5">P5</button></td>
-                                <td><button class="seat" onclick="setTable(P6)" id="P6">P6</button></td>
-                                <td><button class="seat" onclick="setTable(P7)" id="P7">P7</button></td>
-                                <td><button class="seat" onclick="setTable(P8)" id="P8">P8</button></td>
-                                <td><button class="seat" onclick="setTable(P9)" id="P9">P9</button></td>
+                                <td><button class="seat" id="N7">N7</button></td>
+                                <td><button class="seat" id="N8">N8</button></td>
+                                <td><button class="seat" id="N9">N9</button></td>
+                                <td><button class="seat" id="O1">O1</button></td>
+                                <td><button class="seat" id="O2">O2</button></td>
+                            </tr>
+                            <tr>
+                                <td><button class="seat" id="P5">P5</button></td>
+                                <td><button class="seat" id="P6">P6</button></td>
+                                <td><button class="seat" id="P7">P7</button></td>
+                                <td><button class="seat" id="P8">P8</button></td>
+                                <td><button class="seat" id="P9">P9</button></td>
                             </tr>
                         </table>
+
                     </div>
                     <div class="tableset">
                         <div class="table2">
                             <table>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(A6)" id="A6">A6</button></td>
-                                    <td><button class="seat" onclick="setTable(A7)" id="A7">A7</button></td>
-                                    <td><button class="seat" onclick="setTable(A8)" id="A8">A8</button></td>
-                                    <td><button class="seat" onclick="setTable(A9)" id="A9">A9</button></td>
-                                    <td><button class="seat" onclick="setTable(B1)" id="B1">B1</button></td>
-                                    <td><button class="seat" onclick="setTable(B2)" id="B2">B2</button></td>
-                                    <td><button class="seat" onclick="setTable(B3)" id="B3">B3</button></td>
-                                    <td><button class="seat" onclick="setTable(B4)" id="B4">B4</button></td>
-                                    <td><button class="seat" onclick="setTable(B5)" id="B5">B5</button></td>
-                                    <td><button class="seat" onclick="setTable(B6)" id="B6">B6</button></td>
-                                    <td><button class="seat" onclick="setTable(B7)" id="B7">B7</button></td>
+                                    <td><button class="seat" id="A6">A6</button></td>
+                                    <td><button class="seat" id="A7">A7</button></td>
+                                    <td><button class="seat" id="A8">A8</button></td>
+                                    <td><button class="seat" id="A9">A9</button></td>
+                                    <td><button class="seat" id="B1">B1</button></td>
+                                    <td><button class="seat" id="B2">B2</button></td>
+                                    <td><button class="seat" id="B3">B3</button></td>
+                                    <td><button class="seat" id="B4">B4</button></td>
+                                    <td><button class="seat" id="B5">B5</button></td>
+                                    <td><button class="seat" id="B6">B6</button></td>
+                                    <td><button class="seat" id="B7">B7</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(B8)" id="B8">B8</button></td>
-                                    <td><button class="seat" onclick="setTable(B9)" id="B9">B9</button></td>
-                                    <td><button class="seat" onclick="setTable(C1)" id="C1">C1</button></td>
-                                    <td><button class="seat" onclick="setTable(C2)" id="C2">C2</button></td>
-                                    <td><button class="seat" onclick="setTable(C3)" id="C3">C3</button></td>
-                                    <td><button class="seat" onclick="setTable(C4)" id="C4">C4</button></td>
-                                    <td><button class="seat" onclick="setTable(C5)" id="C5">C5</button></td>
-                                    <td><button class="seat" onclick="setTable(C6)" id="C6">C6</button></td>
-                                    <td><button class="seat" onclick="setTable(C7)" id="C7">C7</button></td>
-                                    <td><button class="seat" onclick="setTable(C8)" id="C8">C8</button></td>
-                                    <td><button class="seat" onclick="setTable(C9)" id="C9">C9</button></td>
+                                    <td><button class="seat" id="B8">B8</button></td>
+                                    <td><button class="seat" id="B9">B9</button></td>
+                                    <td><button class="seat" id="C1">C1</button></td>
+                                    <td><button class="seat" id="C2">C2</button></td>
+                                    <td><button class="seat" id="C3">C3</button></td>
+                                    <td><button class="seat" id="C4">C4</button></td>
+                                    <td><button class="seat" id="C5">C5</button></td>
+                                    <td><button class="seat" id="C6">C6</button></td>
+                                    <td><button class="seat" id="C7">C7</button></td>
+                                    <td><button class="seat" id="C8">C8</button></td>
+                                    <td><button class="seat" id="C9">C9</button></td>
                                 </tr>
                             </table>
+
                         </div>
                         <div class="table3">
                             <table>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(D6)" id="D6">D6</button></td>
-                                    <td><button class="seat" onclick="setTable(D7)" id="D7">D7</button></td>
-                                    <td><button class="seat" onclick="setTable(D8)" id="D8">D8</button></td>
-                                    <td><button class="seat" onclick="setTable(D9)" id="D9">D9</button></td>
-                                    <td><button class="seat" onclick="setTable(E1)" id="E1">E1</button></td>
-                                    <td><button class="seat" onclick="setTable(E2)" id="E2">E2</button></td>
-                                    <td><button class="seat" onclick="setTable(E3)" id="E3">E3</button></td>
-                                    <td><button class="seat" onclick="setTable(E4)" id="E4">E4</button></td>
-                                    <td><button class="seat" onclick="setTable(E5)" id="E5">E5</button></td>
-                                    <td><button class="seat" onclick="setTable(E6)" id="E6">E6</button></td>
-                                    <td><button class="seat" onclick="setTable(E7)" id="E7">E7</button></td>
+                                    <td><button class="seat" id="D6">D6</button></td>
+                                    <td><button class="seat" id="D7">D7</button></td>
+                                    <td><button class="seat" id="D8">D8</button></td>
+                                    <td><button class="seat" id="D9">D9</button></td>
+                                    <td><button class="seat" id="E1">E1</button></td>
+                                    <td><button class="seat" id="E2">E2</button></td>
+                                    <td><button class="seat" id="E3">E3</button></td>
+                                    <td><button class="seat" id="E4">E4</button></td>
+                                    <td><button class="seat" id="E5">E5</button></td>
+                                    <td><button class="seat" id="E6">E6</button></td>
+                                    <td><button class="seat" id="E7">E7</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(F4)" id="F4">F4</button></td>
-                                    <td><button class="seat" onclick="setTable(F5)" id="F5">F5</button></td>
-                                    <td><button class="seat" onclick="setTable(F6)" id="F6">F6</button></td>
-                                    <td><button class="seat" onclick="setTable(F7)" id="F7">F7</button></td>
-                                    <td><button class="seat" onclick="setTable(F8)" id="F8">F8</button></td>
-                                    <td><button class="seat" onclick="setTable(F9)" id="F9">F9</button></td>
-                                    <td><button class="seat" onclick="setTable(G1)" id="G1">G1</button></td>
-                                    <td><button class="seat" onclick="setTable(G2)" id="G2">G2</button></td>
-                                    <td><button class="seat" onclick="setTable(G3)" id="G3">G3</button></td>
-                                    <td><button class="seat" onclick="setTable(G4)" id="G4">G4</button></td>
-                                    <td><button class="seat" onclick="setTable(G5)" id="G5">G5</button></td>
+                                    <td><button class="seat" id="F4">F4</button></td>
+                                    <td><button class="seat" id="F5">F5</button></td>
+                                    <td><button class="seat" id="F6">F6</button></td>
+                                    <td><button class="seat" id="F7">F7</button></td>
+                                    <td><button class="seat" id="F8">F8</button></td>
+                                    <td><button class="seat" id="F9">F9</button></td>
+                                    <td><button class="seat" id="G1">G1</button></td>
+                                    <td><button class="seat" id="G2">G2</button></td>
+                                    <td><button class="seat" id="G3">G3</button></td>
+                                    <td><button class="seat" id="G4">G4</button></td>
+                                    <td><button class="seat" id="G5">G5</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(H2)" id="H2">H2</button></td>
-                                    <td><button class="seat" onclick="setTable(H3)" id="H3">H3</button></td>
-                                    <td><button class="seat" onclick="setTable(H4)" id="H4">H4</button></td>
-                                    <td><button class="seat" onclick="setTable(H5)" id="H5">H5</button></td>
-                                    <td><button class="seat" onclick="setTable(H6)" id="H6">H6</button></td>
-                                    <td><button class="seat" onclick="setTable(H7)" id="H7">H7</button></td>
-                                    <td><button class="seat" onclick="setTable(H8)" id="H8">H8</button></td>
-                                    <td><button class="seat" onclick="setTable(H9)" id="H9">H9</button></td>
-                                    <td><button class="seat" onclick="setTable(I1)" id="I1">I1</button></td>
-                                    <td><button class="seat" onclick="setTable(I2)" id="I2">I2</button></td>
-                                    <td><button class="seat" onclick="setTable(I3)" id="I3">I3</button></td>
+                                    <td><button class="seat" id="H2">H2</button></td>
+                                    <td><button class="seat" id="H3">H3</button></td>
+                                    <td><button class="seat" id="H4">H4</button></td>
+                                    <td><button class="seat" id="H5">H5</button></td>
+                                    <td><button class="seat" id="H6">H6</button></td>
+                                    <td><button class="seat" id="H7">H7</button></td>
+                                    <td><button class="seat" id="H8">H8</button></td>
+                                    <td><button class="seat" id="H9">H9</button></td>
+                                    <td><button class="seat" id="I1">I1</button></td>
+                                    <td><button class="seat" id="I2">I2</button></td>
+                                    <td><button class="seat" id="I3">I3</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(I9)" id="I9">I9</button></td>
-                                    <td><button class="seat" onclick="setTable(J1)" id="J1">J1</button></td>
-                                    <td><button class="seat" onclick="setTable(J2)" id="J2">J2</button></td>
-                                    <td><button class="seat" onclick="setTable(J3)" id="J3">J3</button></td>
-                                    <td><button class="seat" onclick="setTable(J4)" id="J4">J4</button></td>
-                                    <td><button class="seat" onclick="setTable(J5)" id="J5">J5</button></td>
-                                    <td><button class="seat" onclick="setTable(J6)" id="J6">J6</button></td>
-                                    <td><button class="seat" onclick="setTable(J7)" id="J7">J7</button></td>
-                                    <td><button class="seat" onclick="setTable(J8)" id="J8">J8</button></td>
-                                    <td><button class="seat" onclick="setTable(J9)" id="J9">J9</button></td>
-                                    <td><button class="seat" onclick="setTable(K1)" id="K1">K1</button></td>
+                                    <td><button class="seat" id="I9">I9</button></td>
+                                    <td><button class="seat" id="J1">J1</button></td>
+                                    <td><button class="seat" id="J2">J2</button></td>
+                                    <td><button class="seat" id="J3">J3</button></td>
+                                    <td><button class="seat" id="J4">J4</button></td>
+                                    <td><button class="seat" id="J5">J5</button></td>
+                                    <td><button class="seat" id="J6">J6</button></td>
+                                    <td><button class="seat" id="J7">J7</button></td>
+                                    <td><button class="seat" id="J8">J8</button></td>
+                                    <td><button class="seat" id="J9">J9</button></td>
+                                    <td><button class="seat" id="K1">K1</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(K7)" id="K7">K7</button></td>
-                                    <td><button class="seat" onclick="setTable(K8)" id="K8">K8</button></td>
-                                    <td><button class="seat" onclick="setTable(K9)" id="K9">K9</button></td>
-                                    <td><button class="seat" onclick="setTable(L1)" id="L1">L1</button></td>
-                                    <td><button class="seat" onclick="setTable(L2)" id="L2">L2</button></td>
-                                    <td><button class="seat" onclick="setTable(L3)" id="L3">L3</button></td>
-                                    <td><button class="seat" onclick="setTable(L4)" id="L4">L4</button></td>
-                                    <td><button class="seat" onclick="setTable(L5)" id="L5">L5</button></td>
-                                    <td><button class="seat" onclick="setTable(L6)" id="L6">L6</button></td>
-                                    <td><button class="seat" onclick="setTable(L7)" id="L7">L7</button></td>
-                                    <td><button class="seat" onclick="setTable(L8)" id="L8">L8</button></td>
+                                    <td><button class="seat" id="K7">K7</button></td>
+                                    <td><button class="seat" id="K8">K8</button></td>
+                                    <td><button class="seat" id="K9">K9</button></td>
+                                    <td><button class="seat" id="L1">L1</button></td>
+                                    <td><button class="seat" id="L2">L2</button></td>
+                                    <td><button class="seat" id="L3">L3</button></td>
+                                    <td><button class="seat" id="L4">L4</button></td>
+                                    <td><button class="seat" id="L5">L5</button></td>
+                                    <td><button class="seat" id="L6">L6</button></td>
+                                    <td><button class="seat" id="L7">L7</button></td>
+                                    <td><button class="seat" id="L8">L8</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(M5)" id="M5">M5</button></td>
-                                    <td><button class="seat" onclick="setTable(M6)" id="M6">M6</button></td>
-                                    <td><button class="seat" onclick="setTable(M7)" id="M7">M7</button></td>
-                                    <td><button class="seat" onclick="setTable(M8)" id="M8">M8</button></td>
-                                    <td><button class="seat" onclick="setTable(M9)" id="M9">M9</button></td>
-                                    <td><button class="seat" onclick="setTable(N1)" id="N1">N1</button></td>
-                                    <td><button class="seat" onclick="setTable(N2)" id="N2">N2</button></td>
-                                    <td><button class="seat" onclick="setTable(N3)" id="N3">N3</button></td>
-                                    <td><button class="seat" onclick="setTable(N4)" id="N4">N4</button></td>
-                                    <td><button class="seat" onclick="setTable(N5)" id="N5">N5</button></td>
-                                    <td><button class="seat" onclick="setTable(N6)" id="N6">N6</button></td>
+                                    <td><button class="seat" id="M5">M5</button></td>
+                                    <td><button class="seat" id="M6">M6</button></td>
+                                    <td><button class="seat" id="M7">M7</button></td>
+                                    <td><button class="seat" id="M8">M8</button></td>
+                                    <td><button class="seat" id="M9">M9</button></td>
+                                    <td><button class="seat" id="N1">N1</button></td>
+                                    <td><button class="seat" id="N2">N2</button></td>
+                                    <td><button class="seat" id="N3">N3</button></td>
+                                    <td><button class="seat" id="N4">N4</button></td>
+                                    <td><button class="seat" id="N5">N5</button></td>
+                                    <td><button class="seat" id="N6">N6</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(O3)" id="O3">O3</button></td>
-                                    <td><button class="seat" onclick="setTable(O4)" id="O4">O4</button></td>
-                                    <td><button class="seat" onclick="setTable(O5)" id="O5">O5</button></td>
-                                    <td><button class="seat" onclick="setTable(O6)" id="O6">O6</button></td>
-                                    <td><button class="seat" onclick="setTable(O7)" id="O7">O7</button></td>
-                                    <td><button class="seat" onclick="setTable(O8)" id="O8">O8</button></td>
-                                    <td><button class="seat" onclick="setTable(O9)" id="O9">O9</button></td>
-                                    <td><button class="seat" onclick="setTable(P1)" id="P1">P1</button></td>
-                                    <td><button class="seat" onclick="setTable(P2)" id="P2">P2</button></td>
-                                    <td><button class="seat" onclick="setTable(P3)" id="P3">P3</button></td>
-                                    <td><button class="seat" onclick="setTable(P4)" id="P4">P4</button></td>
+                                    <td><button class="seat" id="O3">O3</button></td>
+                                    <td><button class="seat" id="O4">O4</button></td>
+                                    <td><button class="seat" id="O5">O5</button></td>
+                                    <td><button class="seat" id="O6">O6</button></td>
+                                    <td><button class="seat" id="O7">O7</button></td>
+                                    <td><button class="seat" id="O8">O8</button></td>
+                                    <td><button class="seat" id="O9">O9</button></td>
+                                    <td><button class="seat" id="P1">P1</button></td>
+                                    <td><button class="seat" id="P2">P2</button></td>
+                                    <td><button class="seat" id="P3">P3</button></td>
+                                    <td><button class="seat" id="P4">P4</button></td>
                                 </tr>
                                 <tr>
                                     <td><button class="seat" id="Q1">Q1</button></td>
@@ -512,6 +514,7 @@
                                     <td><button class="seat" id="R2">R2</button></td>
                                 </tr>
                             </table>
+
                         </div>
                     </div>
                 </div>
@@ -567,7 +570,8 @@
                 <hr style="margin-top: 10px; margin-bottom: 10px;">
                 <div class="submit_btn">
                     <button class="btn1" style="margin-right: 5px;">BACK</button>
-                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>
+                    <!--<button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>-->
+                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="navigateCheckout()">CONTINUE</button>
                 </div>
             </div>
         </div>

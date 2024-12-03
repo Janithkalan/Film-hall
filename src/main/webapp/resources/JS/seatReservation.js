@@ -42,14 +42,6 @@ function updateSeatInfoButtons() {
 
 document.querySelectorAll(".seat").forEach(function (seat) {
     seat.addEventListener("click", function () {
-//        if (selectedSeatsCount >= 4 && !seat.classList.contains("selected")) {
-//            swal({
-//                title: "",
-//                text: "You can select only 4 seat at one time",
-//                icon: "error",
-//            });
-//            return;
-//        }
 
         if (seat.classList.contains("selected")) {
             seat.classList.remove("selected");
@@ -150,9 +142,6 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 
                 }
 
-
-
-
             });
 
         } else {
@@ -210,4 +199,22 @@ async function seatReservationProcess(current_movie, current_date, current_time,
         }
     }
         
+}
+
+function navigateCheckout(){
+    
+    let moive_name = document.getElementById("movie_name").innerHTML;
+    let hall_name = document.getElementById("hall_name").innerHTML;
+    let time_name = document.getElementById("time_name").innerHTML;
+    let seat_count = document.getElementById("seat-count").innerHTML;
+    let total_price = document.getElementById("total_price").innerHTML;
+    
+    
+    window.location.href = "checkout.jsp?param1=" + encodeURIComponent(moive_name) + 
+            "&param2=" + encodeURIComponent(hall_name)+ 
+            "&param3=" + encodeURIComponent(time_name)+
+            "&param4=" + encodeURIComponent(seat_count)+
+            "&param5=" + encodeURIComponent(total_price);
+    
+    
 }

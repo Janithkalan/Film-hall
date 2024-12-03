@@ -37,13 +37,18 @@ public class load_movies extends HttpServlet {
 
         User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
         GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+        
         responseJson.addProperty("login_status", false);
         if (normal_user != null) {
+            
             responseJson.addProperty("user_name", normal_user.getFirst_name() + " " + normal_user.getLast_name());
             responseJson.addProperty("login_status", true);
+            
         } else if (google_user != null) {
+            
             responseJson.addProperty("user_name", google_user.getName());
             responseJson.addProperty("login_status", true);
+            
         } else {
             
         }
