@@ -276,6 +276,7 @@
         }
     </style>
 </head>
+<%@include  file="nav.jsp" %>
 <body>
     <div class="container">
         <h1>CONTACT US</h1>
@@ -343,5 +344,6 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="resources/JS/contact.js"></script>
 </body>
+<%@include  file="footer.jsp" %>
 </html>
 

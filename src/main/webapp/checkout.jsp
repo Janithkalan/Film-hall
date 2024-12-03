@@ -211,6 +211,7 @@
             }
         </style>
     </head>
+    <%@include  file="nav.jsp" %>
     <body onload="calculatePrice(<%= total_price%>, '<%= hall_name%>')">
 
         <div class="container">
@@ -289,4 +290,5 @@
 
         <script src="resources/JS/checkout.js"></script>                       
     </body>
+    <%@include  file="footer.jsp" %>
 </html>

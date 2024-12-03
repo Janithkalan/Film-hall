@@ -284,6 +284,7 @@
 
         </style>
     </head>
+    <%@include  file="nav.jsp" %>
     <body onload="loadSeats(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">
         <div class="container sub_container_1">
             <h1 class="page_heading">SELECT SEATS</h1>
@@ -579,4 +580,5 @@
         <script src="resources/JS/seatReservation.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
+    <%@include  file="footer.jsp" %>
 </html>

@@ -13,7 +13,7 @@
     <link rel="stylesheet" type="text/css" href="resources/CSS/timeReservation.css">
     <style>p{color:white;}</style>
 </head>
-
+<%@include  file="nav.jsp" %>
 <body onload="timeReservationDetails()">
     
     <div class="im">
@@ -100,4 +100,5 @@
     <script src="resources/JS/timeReservation.js"></script>
     
 </body>
+<%@include  file="footer.jsp" %>
 </html>

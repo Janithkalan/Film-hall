@@ -1,0 +1,353 @@
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 40px;
+    margin-top: 100px;
+    font-family: "Poppins", sans-serif;
+}
+
+.newsletter-box {
+    border: 1px solid #fff;
+    padding: 15px;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #000;
+    margin-top: -80px;
+}
+
+.newsletter p {  
+    font-weight: 400;
+    font-style: normal;
+    font-size: 14px;
+    margin-right: 150px;
+    margin-top: 20px;
+}
+
+.newsletter-input {
+    display: flex;
+    justify-content: center;
+}
+
+.newsletter-input input {
+    padding: 10px;
+    margin: 10px 0px;
+    width: 250px;
+    border: 0.5px solid #fff;
+    background-color: #000;
+    color: #fff;
+    outline: none;
+    max-height: min-content;
+    font-size: 12px;
+}
+
+.newsletter-input button {
+    padding: 10px;
+    margin: 10px 0px;
+    background-color: #000;
+    color: #fff;
+    border: 0.5px solid #fff;
+    cursor: pointer;
+    font-weight: 100;
+    font-size: 12px;
+    max-height: min-content;
+}
+
+.newsletter-input button:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 40px 0;
+    
+}
+
+.footer-links {
+    flex: 1;
+    text-align: left;
+}
+
+.footer-links ul {
+    list-style-type: none;
+    margin: 0px;
+}
+
+.footer-links ul li {
+    margin: 0 45px;
+}
+
+.footer-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 200;
+}
+
+.footer-policies {
+    text-align: center;
+}
+
+.footer-policies a {
+    color: #fff;
+    text-decoration: none;
+    margin:0px 15px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.social-icons {
+    flex: 1;
+    text-align: right;
+    margin-right: 55px;
+}
+
+.social-icons a {
+    color: #fff;
+    margin: 0 8px;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 12px;
+    font-weight: 300;
+    color: #777;
+}
+
+footer a:hover{
+    color: aqua !important;
+    transition: .5s !important;
+}
+
+
+@media (max-width: 1024px) {
+    .newsletter-box {
+        margin-left: 9%;
+        margin-right: 9%;
+    }
+
+    .newsletter p {  
+        font-size: 11px;
+        margin-right: 55px;
+        margin-top: 18px;
+
+    }
+
+    .newsletter-input input {
+        padding: 10px;
+        margin: 10px 0px;
+        width: 140px;
+        font-size: 8px;
+    }
+
+    .newsletter-input button {
+        padding: 10px;
+        margin: 10px 0px;
+        font-size: 8px;
+        max-height: min-content;
+    }
+    
+    .footer-container {
+        display: block;
+        padding: 40px 0;
+        
+    }
+    .footer-links ul li {
+      margin: -4px; 
+    }
+
+    .footer-links ul li a {
+        font-size: 11px;
+  
+    }
+
+    .footer-policies {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 20px;
+    }
+    
+    .footer-policies a {
+        font-size: 14px;
+        font-weight: 400;
+    }
+    
+    .social-icons {
+        flex: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+    
+    .social-icons a {
+        font-size: 13px;
+    }
+    
+    .copyright {
+        margin-top: 0px;
+        font-size: 11px;
+        font-weight: 300;
+        
+    }
+
+}
+
+@media (max-width: 768px) {
+    .newsletter-box {
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+    .newsletter p {  
+        font-size: 8px;
+        margin-right: 20px;
+        margin-top: 18px;
+    }
+
+    .newsletter-input input {
+        padding: 10px;
+        margin: 10px 0px;
+        width: 140px;
+        font-size: 7px;
+    }
+
+    .newsletter-input button {
+        padding: 10px;
+        margin: 10px 0px;
+        font-size: 7px;
+        max-height: min-content;
+    }
+    
+    .footer-container {
+        display: block;
+        padding: 40px 0;
+        
+    }
+    .footer-links ul li {
+      margin: -7px; 
+    }
+
+    .footer-links ul li a {
+        font-size: 8px;
+  
+    }
+
+    .footer-policies {
+        text-align: center;
+        margin-top: 25px;
+        margin-bottom: 15px;
+    }
+    
+    .footer-policies a {
+        font-size: 9.5px;
+        font-weight: 400;
+    }
+    
+    .social-icons {
+        flex: 1;
+        text-align: center;
+        margin-right: 0px;
+    }
+    
+    .social-icons a {
+        font-size: 13px;
+    }
+    
+    .copyright {
+        text-align: center;
+        margin-top: 0px;
+        font-size: 10px;
+        font-weight: 300;
+        
+    }
+
+}
+
+    @media (max-width: 480px) {
+        .newsletter-box {
+            margin-left: 5px;
+            margin-right: 5px;
+            padding: 25px;
+            padding-top: 15px;
+            padding-bottom: 15px;
+        }
+    
+        .newsletter p {  
+            font-size: 9px;
+            margin-right: 0px;
+            margin-top: 0px;
+            margin-bottom: 2px;
+            font-weight: 200;
+            
+        }
+
+        .newsletter-input {
+            display: block;
+            justify-content: center;
+        }
+    
+        .newsletter-input input {
+            padding: 5px;
+            margin: 10px 0px;
+            width: 80px;
+            font-size: 7px;
+            margin-bottom: 0px;
+        }
+    
+        .newsletter-input button {
+            padding: 5px;
+            margin: 10px 0px;
+            font-size: 7px;
+            margin-bottom: 0px;
+        }
+        
+        .footer-container {
+            display: block;
+            padding: 30px 0;
+            
+        }
+        .footer-links ul li {
+          margin-bottom: -8px; 
+        }
+    
+        .footer-links ul li a {
+            font-size: 8px;
+        }
+    
+        .footer-policies {
+            text-align: center;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .footer-policies a {
+            font-size: 8px;
+            font-weight: 400;
+            margin:0px 5px;
+        }
+        
+        .social-icons {
+            flex: 1;
+            text-align: center;
+            margin-right: 0px;
+        }
+        
+        .social-icons a {
+            font-size: 12px;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 0px;
+            font-size: 9px;
+            font-weight: 300;
+        }
+
+}

@@ -14,9 +14,14 @@ body {
     padding-bottom: 10px;
 }
 
-.slider img{
+.slides img{
     width: 100%;  
     display: none;
+    animation: fade 2s;
+}
+
+.slider .text {
+    animation: none;
 }
 
 img.displaySlide {
@@ -36,6 +41,14 @@ img.displaySlide {
     color: white;
     border: none;
     cursor: pointer;
+}
+
+
+.slider .more {
+    position: absolute;
+    z-index: 10; 
+    opacity: 1; 
+    animation: none; 
 }
 
 .prev{
