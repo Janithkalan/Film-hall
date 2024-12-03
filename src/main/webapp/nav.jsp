@@ -6,39 +6,187 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Navigation Bar</title>
-        <link rel="stylesheet" href="resources/CSS/nav.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-
-    </head>  
-
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Navbar</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="resources/CSS/search.css"/>
+        <style>
+            body{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+                background-color: black;
+            }
+            li , a ,button,input{
+                font-size: 16px;
+                font-weight: 500;
+                color: white;
+                text-decoration: none;
+            }
+            header{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px 5%;
+                position: relative;
+            }
+            .logo{
+                cursor: pointer;               
+            }
+            .logo img{
+                width: 50px;
+                height: 50px;
+            }
+            .nav__links{
+                list-style: none;
+                display: flex;
+                align-items: center;
+            }
+            .nav__links li{
+                display: inline-block;
+                margin-right: 20px;
+            }
+            .nav__links li a{
+                transition: all 0.3s ease 0s;
+            }
+            .nav__links li a:hover{
+                color: #1e8dc0;
+            }
+            .buttons button{
+                padding: 9px ;
+                background-color: #1e8dc0;
+                border: none;
+                cursor: pointer;
+                transition: all 0.3s ease 0s;
+            }
+            .buttons button:hover{
+                background-color: #12597a;
+            }
+            input{
+                background-color: #252525;
+                color: rgb(255, 255, 255);
+                border: none;
+                padding: 8px;
+                margin-left: 10px;
+            }
+            .login{
+                margin-left: 50px;
+            }
+            .menu-icon {
+                display: none;
+                cursor: pointer;
+                font-size: 24px;
+            }
+            .buttons{
+                display: flex;
+                margin-left: 200px;
+                align-items: center;
+            }
+            hr {
+                margin-left: 8%;
+                margin-right: 8%;
+                border: 1px solid white;
+            }
+            @media (max-width: 1500px){
+                li , a ,button,input{
+                    font-size: 13px;
+                    font-weight: 300;
+                }
+                .buttons{
+                    margin-left: 100px;
+                }
+            }
+            @media (max-width: 1300px){
+                li , a ,button,input{
+                    font-size: 13px;
+                }
+                .buttons button{
+                    padding: 7px;
+                }
+                input{
+                    padding: 6px;
+                }
+                .login{
+                    margin-left: 30px;
+                }
+                .buttons{
+                    margin-left: 75px;
+                }
+            }
+            @media (max-width: 1180px) {
+                .nav__links {
+                    display: none;
+                    flex-direction: column;
+                    align-items: center;
+                    background-color: rgb(0, 0, 0);
+                    position: absolute;
+                    top: 70px;
+                    left: 0;
+                    width: 100%;
+                    animation: slideDown 0.5s forwards;
+                }
+                .nav__links li {
+                    display: block;
+                    margin: 10px 0;
+                }
+                .nav__links li a {
+                    padding: 10px 0;
+                    display: block;
+                }
+                .nav__links li a:hover{
+                    color: #1e8dc0;
+                }
+                .menu-icon {
+                    display: block;
+                    color: white;
+                }
+                .buttons {
+                    display: none;
+                }
+                .nav__links.active .buttons {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    text-align: center;
+                    width: 100%;
+                    margin-top: 10px;
+                    margin-left: 0px;
+                }
+                .buttons a {
+                    margin: 10px 0;
+                }
+                .logo img{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+            .nav__links.active {
+                display: flex;
+            }
+            @keyframes slideDown {
+                0% {
+                    opacity: 0;
+                    transform: translateY(-20px);
+                }
+                100% {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        </style>
+    </head>
     <body>
-        <div class="container">
-            <button onclick="ham()" class="nav-btn"><i class="fa-solid fa-bars"></i></button>
-            <div class="items">
-                <ul class="nav-links" id="nav-link">
-                    <li class="navlinks"><a href="">HOME</a></li>
-                    <li class="navlinks"><a href="">MOVIES</a></li>
-                    <li class="navlinks"><a href="">EXCLUSIVE DEALS</a></li>
-                    <li class="navlinks"><a href="">CONTACT US</a></li>
-                    <div class="search-container" style="margin-right: 100px;">
-                        <input type="text" id="search-input2" placeholder="Search..." onkeyup="searchResults()">
-                        <div id="dropdown2" class="dropdown-content2"></div>
-                    </div>
-                    <button class="buy"><a href="">BUY TICKETS</a></button>
-                    <li class="navlinks"><a href="">LOGIN</a></li>
-                </ul>
-            </div>
-            <div class="items" id="items2">
-                <ul class="nav-links" id="nav-link2">
-                    <li class="navlinks"><a href="">HOME</a></li>
-                    <li class="navlinks"><a href="">MOVIES</a></li>
-                    <li class="navlinks"><a href="">EXCLUSIVE DEALS</a></li>
-                    <li class="navlinks"><a href="">CONTACT US</a></li>
+        <header>
+            <a class="logo" href="/"><img src="logo.png" alt="logo"></a>
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">MOVIES</a></li>
+                    <li><a href="">EXCLUSIVE DEALS</a></li>
+                    <li><a href="">CONTACT US</a></li>
                     <div class="search-container" style="margin-right: 100px;">
                         <input type="text" id="search-input" placeholder="Search..." onkeyup="searchResults()">
                         <div id="dropdown" class="dropdown-content">
@@ -50,15 +198,23 @@
                             </div>
                         </div>
                     </div>
-                    <button class="buy"><a href="">BUY TICKETS</a></button>
-                    <li class="navlinks"><a href="">LOGIN</a></li>
+                    <div class="buttons">
+                        <a class="buy_tickets" href="#"><button>BUY TICKETS</button></a>
+                        <a class="login" href="#">LOGIN</a>
+                    </div>
                 </ul>
-            </div>
-            <br>
-            <hr>
-        </div>
+                <div class="menu-icon" id="menu-icon">☰</div>
+            </nav>           
+        </header>
+        <hr>
+        <script>
+            const menuIcon = document.getElementById('menu-icon');
+            const navLinks = document.querySelector('.nav__links');
+
+            menuIcon.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        </script>
         <script src="resources/JS/search.js"></script>
-        <script src="resources/JS/nav.js"></script>
     </body>
 </html>
-
