@@ -210,7 +210,7 @@
                 <input type="password" placeholder="Enter Password" id="password"><i class="fa-solid fa-circle" style="color: #261cba;"></i><br>
                 <p style="text-align: right; margin-right: 20px;"><a href="">Forgot Password?</a></p>
                 <button class="login" onclick="login()"><span class="text">LOGIN</span></button><br>
-                <button class="google"><img src="resources/IMG/google.png" alt=""><span class="text">Continue With Google</span></button>
+                <button class="google" onclick="window.location.href = '/CinemaHall/google_oauth';"><img src="resources/IMG/google.png" alt=""><span class="text">Continue With Google</span></button>
                 <p>Don't Have An Account?<a href="#">CREATE NEW</a></p>
            
         </div>
