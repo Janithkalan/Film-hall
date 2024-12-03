@@ -124,8 +124,7 @@ public class google_oauth extends HttpServlet {
 
         // Create a session for the user
         HttpSession session = request.getSession();
-        session.setAttribute("userEmail", user.getEmail());
-        session.setAttribute("userName", user.getName());
+        session.setAttribute("google_user", user);
 
         // Redirect to the user's dashboard or home page
         response.sendRedirect("http://localhost:8080/CinemaHall/");

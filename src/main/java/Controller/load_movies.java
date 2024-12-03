@@ -7,7 +7,9 @@ package Controller;
 import Model.ConnectionDB;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import dto.GoogleUser_DTO;
 import dto.Movie_DTO;
+import dto.User_DTO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
@@ -25,7 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "load_movies", urlPatterns = {"/load_movies"})
 public class load_movies extends HttpServlet {
 
-    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
@@ -33,48 +34,59 @@ public class load_movies extends HttpServlet {
         responseJson.addProperty("success", false);
         ArrayList movie_list = new ArrayList();
         ArrayList upcomming_movies_list = new ArrayList();
-        
+
+        User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
+        GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+        responseJson.addProperty("login_status", false);
+        if (normal_user != null) {
+            responseJson.addProperty("user_name", normal_user.getFirst_name() + " " + normal_user.getLast_name());
+            responseJson.addProperty("login_status", true);
+        } else if (google_user != null) {
+            responseJson.addProperty("user_name", google_user.getName());
+            responseJson.addProperty("login_status", true);
+        } else {
+            
+        }
+
         try {
             ResultSet resultSet = ConnectionDB.execute("SELECT * FROM movies WHERE movies_status_id = '1' ");
-            
-            while (resultSet.next()){
+
+            while (resultSet.next()) {
                 Movie_DTO movie_DTO = new Movie_DTO();
-                
+
                 movie_DTO.setId(resultSet.getInt("idmovies"));
                 movie_DTO.setName(resultSet.getString("name"));
                 movie_DTO.setGenre(resultSet.getString("genre"));
                 movie_DTO.setRatings(resultSet.getString("ratings"));
-                
+
                 movie_list.add(movie_DTO);
             }
-            
+
             ResultSet resultSet2 = ConnectionDB.execute("SELECT * FROM movies WHERE movies_status_id = '2' ");
-            
-            while (resultSet2.next()){
+
+            while (resultSet2.next()) {
                 Movie_DTO movie_DTO = new Movie_DTO();
-                
+
                 movie_DTO.setId(resultSet2.getInt("idmovies"));
                 movie_DTO.setName(resultSet2.getString("name"));
                 movie_DTO.setGenre(resultSet2.getString("genre"));
                 movie_DTO.setRatings(resultSet2.getString("ratings"));
-                
+
                 upcomming_movies_list.add(movie_DTO);
             }
-            
-            responseJson.add("movie_list",gson.toJsonTree(movie_list));
-            responseJson.add("upcomming_movies_list",gson.toJsonTree(upcomming_movies_list));
+
+            responseJson.add("movie_list", gson.toJsonTree(movie_list));
+            responseJson.add("upcomming_movies_list", gson.toJsonTree(upcomming_movies_list));
             responseJson.addProperty("success", true);
-            
+
         } catch (Exception e) {
-              e.printStackTrace();
+            e.printStackTrace();
         }
-        
+
         response.setContentType("application/json");
 
         response.getWriter().write(gson.toJson(responseJson));
-        
-    }
 
-    
+    }
 
 }

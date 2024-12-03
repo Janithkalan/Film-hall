@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "login", urlPatterns = {"/login"})
 public class login extends HttpServlet {
@@ -38,11 +39,16 @@ public class login extends HttpServlet {
 //            responseJson.addProperty("message", "Success");
 //            
             try {
-                ResultSet resultSet = ConnectionDB.execute("SELECT * FROM user WHERE email ='"+user_DTO.getEmail()+"' "
-                        + "AND password = '"+user_DTO.getPassword()+"'");
-                if(resultSet.next()){
-                   responseJson.addProperty("success", true);
-                }else{
+                ResultSet resultSet = ConnectionDB.execute("SELECT * FROM user WHERE email ='" + user_DTO.getEmail() + "' "
+                        + "AND password = '" + user_DTO.getPassword() + "'");
+                if (resultSet.next()) {
+                    HttpSession session = request.getSession();
+                    user_DTO.setPassword("");
+                    user_DTO.setFirst_name(resultSet.getString("fname"));
+                    user_DTO.setLast_name(resultSet.getString("lname"));
+                    session.setAttribute("user", user_DTO);
+                    responseJson.addProperty("success", true);
+                } else {
                     responseJson.addProperty("message", "Invalid Email Or Password");
                 }
             } catch (Exception e) {

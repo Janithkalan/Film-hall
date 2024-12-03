@@ -284,7 +284,7 @@
 
         </style>
     </head>
-    <body onload="loadSeats(<%= current_movie %>,<%= current_date %>,'<%= current_time %>',<%= current_hall %>)">
+    <body onload="loadSeats(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">
         <div class="container sub_container_1">
             <h1 class="page_heading">SELECT SEATS</h1>
             <h1 class="movie_name" id="movie_name">VENOM: THE LAST DANCE</h1>
@@ -499,17 +499,17 @@
                                     <td><button class="seat" onclick="setTable(P4)" id="P4">P4</button></td>
                                 </tr>
                                 <tr>
-                                    <td><button class="seat" onclick="setTable(Q1)" id="Q1">Q1</button></td>
-                                    <td><button class="seat" onclick="setTable(Q2)" id="Q2">Q2</button></td>
-                                    <td><button class="seat" onclick="setTable(Q3)" id="Q3">Q3</button></td>
-                                    <td><button class="seat" onclick="setTable(Q4)" id="Q4">Q4</button></td>
-                                    <td><button class="seat" onclick="setTable(Q5)" id="Q5">Q5</button></td>
-                                    <td><button class="seat" onclick="setTable(Q6)" id="Q6">Q6</button></td>
-                                    <td><button class="seat" onclick="setTable(Q7)" id="Q7">Q7</button></td>
-                                    <td><button class="seat" onclick="setTable(Q8)" id="Q8">Q8</button></td>
-                                    <td><button class="seat" onclick="setTable(Q9)" id="Q9">Q9</button></td>
-                                    <td><button class="seat" onclick="setTable(R1)" id="R1">R1</button></td>
-                                    <td><button class="seat" onclick="setTable(R2)" id="R2">R2</button></td>
+                                    <td><button class="seat" id="Q1">Q1</button></td>
+                                    <td><button class="seat" id="Q2">Q2</button></td>
+                                    <td><button class="seat" id="Q3">Q3</button></td>
+                                    <td><button class="seat" id="Q4">Q4</button></td>
+                                    <td><button class="seat" id="Q5">Q5</button></td>
+                                    <td><button class="seat" id="Q6">Q6</button></td>
+                                    <td><button class="seat" id="Q7">Q7</button></td>
+                                    <td><button class="seat" id="Q8">Q8</button></td>
+                                    <td><button class="seat" id="Q9">Q9</button></td>
+                                    <td><button class="seat" id="R1">R1</button></td>
+                                    <td><button class="seat" id="R2">R2</button></td>
                                 </tr>
                             </table>
                         </div>
@@ -561,13 +561,13 @@
                     </div>
                     <div class="total">
                         <p style="font-size: 15px;"><b>TOTAL</b><br> [LKR]</p>
-                        <p class="Amount" id="total_price">4,000.00</p>
+                        <p class="Amount" id="total_price">0</p>
                     </div>
                 </div>
                 <hr style="margin-top: 10px; margin-bottom: 10px;">
                 <div class="submit_btn">
                     <button class="btn1" style="margin-right: 5px;">BACK</button>
-                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie %>,<%= current_date %>,'<%= current_time %>',<%= current_hall %>)">CONTINUE</button>
+                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>
                 </div>
             </div>
         </div>

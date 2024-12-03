@@ -20,6 +20,8 @@ setInterval(() => {
 
 let selectedSeatsCount = 0;
 let selectedSeats = [];
+let price_change = 0;
+
 
 function updateSeatCount() {
     document.getElementById("seat-count").textContent = selectedSeatsCount;
@@ -40,14 +42,14 @@ function updateSeatInfoButtons() {
 
 document.querySelectorAll(".seat").forEach(function (seat) {
     seat.addEventListener("click", function () {
-        if (selectedSeatsCount >= 4 && !seat.classList.contains("selected")) {
-            swal({
-                title: "",
-                text: "You can select only 4 seat at one time",
-                icon: "error",
-            });
-            return;
-        }
+//        if (selectedSeatsCount >= 4 && !seat.classList.contains("selected")) {
+//            swal({
+//                title: "",
+//                text: "You can select only 4 seat at one time",
+//                icon: "error",
+//            });
+//            return;
+//        }
 
         if (seat.classList.contains("selected")) {
             seat.classList.remove("selected");
@@ -61,6 +63,7 @@ document.querySelectorAll(".seat").forEach(function (seat) {
             seat.classList.add("selected");
             seat.style.backgroundColor = "#261CBA";
             selectedSeatsCount++;
+
             selectedSeats.push(seat.textContent);
         }
 
@@ -71,6 +74,45 @@ document.querySelectorAll(".seat").forEach(function (seat) {
 
 //--------------------------------------------------------------------------------------------
 
+document.querySelectorAll(".seat").forEach(function (seat) {
+    seat.addEventListener("click", function () {
+
+        if (document.getElementById("hall_name").innerHTML == "IMAX") {
+            if (seat.classList.contains("selected")) {
+                price_change += 4000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+            } else {
+                price_change -= 4000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+
+            }
+
+        } else if (document.getElementById("hall_name").innerHTML == "DIGITAL 3D") {
+
+            if (seat.classList.contains("selected")) {
+                price_change += 2000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+            } else {
+                price_change -= 2000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+
+            }
+
+        } else if (document.getElementById("hall_name").innerHTML == "GOLD CLASS 3D") {
+
+            if (seat.classList.contains("selected")) {
+                price_change += 3000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+            } else {
+                price_change -= 3000.00;
+                document.getElementById("total_price").innerHTML = price_change;
+
+            }
+        }
+
+
+    });
+});
 
 async function loadSeats(current_movie, current_date, current_time, current_hall) {
 
@@ -114,7 +156,7 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
             });
 
         } else {
-            console.log("not ok");
+            
         }
 
 
@@ -124,47 +166,48 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 
 
 async function seatReservationProcess(current_movie, current_date, current_time, current_hall) {
+
+
     
-    const reservation_dto = {
-        hall_table_id: current_hall,
-        screen_times_id: current_time,
-        month_table_id: current_date,
-        movies_idmovies: current_movie,
-        seat_status: 3
-    };
-
-    const response = await fetch(
-            "seatReservationInsert",
-            {
-                method: "POST",
-                body: JSON.stringify(reservation_dto),
-                headers: {
-                    "Content-Type": "application/json"
+            const reservation_dto = {
+                hall_id: current_hall,
+                screen_time: current_time,
+                date_id: current_date,
+                movie_id: current_movie,
+                seat_id: selectedSeats,
+                seat_status: 3
+            };
+            
+            const response = await fetch(
+                "seatReservationInsert",
+                {
+                    method: "POST",
+                    body: JSON.stringify(reservation_dto),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
                 }
-            }
-
-    );
-    if (response.ok) {
+            );
+    
+            if (response.ok) {
 
         const json = await response.json();
 
         if (json.success) {
 
-//            swal("", "Success!", "success").then(() => {
-//                window.location = "";
-//            });
             swal({
                 title: "",
-                text: "ok",
+                text: "nononoonono",
                 icon: "success"
             });
 
         } else {
             swal({
                 title: "",
-                text: json.message,
+                text: "error",
                 icon: "error"
             });
         }
     }
+        
 }
