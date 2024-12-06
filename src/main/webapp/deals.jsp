@@ -16,8 +16,8 @@
         *{
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
             font-family: 'Poppins';
+            box-sizing: border-box;
         }
         body{
             background-color: #1E1E1E;
