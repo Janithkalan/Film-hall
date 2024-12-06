@@ -67,6 +67,7 @@
             padding-left: 10px;
             font-size: 18px;
             margin-top: 10px;
+            margin-left: 10px;
             padding-top: 10px;
             background-color: #252525;
             border: none;

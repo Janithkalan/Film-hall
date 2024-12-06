@@ -67,6 +67,7 @@
 <body>
     <div class="terms-container">
         <section class="terms-section">
+            <h2>Terms and Conditions</h2>
             <p class="terms-paragraph">Welcome to Moonbeams Cinemas! By purchasing tickets or attending our screenings, you agree to the following terms and conditions:</p>
         </section>
         <section class="terms-section">

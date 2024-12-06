@@ -66,6 +66,7 @@
 <body>
     <div class="privacy-container">
         <section class="privacy-section">
+            <h2>Privacy Policy</h2>
             <p class="privacy-paragraph">At Moonbeams Cinemas, we are committed to protecting your privacy and ensuring the security of your personal information. This policy outlines how we collect, use, and protect your data when you interact with our website.</p>
         </section>
         

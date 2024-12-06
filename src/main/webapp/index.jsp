@@ -31,9 +31,6 @@
                 display: flex !important;
             }
             
-
-
-
         </style>
 
     </head>

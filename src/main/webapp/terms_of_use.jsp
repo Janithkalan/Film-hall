@@ -66,6 +66,7 @@
 <body>
     <div class="terms-container">
         <section class="terms-section">
+            <h2>Terms of Use</h2>
             <p class="terms-paragraph">By accessing and using our website, you agree to comply with the following terms of use. Please read these terms carefully, as they govern your interaction with our website and services.</p>
         </section>
 

@@ -17,9 +17,11 @@
         body{
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
+           
+        }
+        .nav_body{
             background-color: black;
-
+             box-sizing: border-box !important;
         }
         li , a ,button,input{
             font-size: 16px;
@@ -190,6 +192,7 @@
     </style>
 </head>
 <body>
+    <div class="nav_body">
     <header>
         <a class="logo" href="/"><img src="logo.png" alt="logo"></a>
         <nav>
@@ -218,6 +221,8 @@
         </nav>           
     </header>
     <hr>
+    
+    </div>
     <script>
         const menuIcon = document.getElementById('menu-icon');
         const navLinks = document.querySelector('.nav__links');
