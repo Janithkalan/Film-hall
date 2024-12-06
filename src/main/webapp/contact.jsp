@@ -1,9 +1,3 @@
-<%-- 
-    Document   : contact
-    Created on : Nov 13, 2024, 12:34:41 PM
-    Author     : Dilum
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,38 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <title>Document</title>
+    <title>Contact Us</title>
     <style>
         @import url('https://fonts.googleapis.com/css?family=Poppins');
-        *{
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins';
+            font-family: 'Poppins', sans-serif;
         }
-        body{
+
+        body {
             background-color: #1E1E1E;
             color: white;
         }
-        .container{
+
+        .container {
             width: 100%;
             max-width: 1000px;
             padding-right: 250px;
             padding-left: 250px;
             margin-top: 50px;
         }
-        h1{
+
+        h1 {
             font-size: 28px;
         }
-        .sub_container{
+
+        .sub_container {
             margin-left: 50px;
             margin-top: 50px;
         }
-        .sub_container p{
+
+        .sub_container p {
             width: 1000px;
             font-size: 19px;
         }
-        .sub_container2{
+
+        .sub_container2 {
             margin-top: 50px;
             display: flex;
             justify-content: space-between;
@@ -51,7 +51,8 @@
             column-gap: 30px;
             margin-bottom: 30px;
         }
-        input{
+
+        .sub_container2 input {
             width: 500px;
             height: 50px;
             font-size: 18px;
@@ -61,229 +62,282 @@
             border: none;
             color: white;
         }
-        textarea{
+
+        textarea {
             width: 500px;
             height: 180px;
             padding-left: 10px;
             font-size: 18px;
             margin-top: 10px;
-            margin-left: 10px;
             padding-top: 10px;
             background-color: #252525;
             border: none;
             color: white;
         }
-        .input{
+
+        .input {
             margin-top: 20px;
         }
-        .submit{
+
+        .submit {
             color: white;
             background-color: #261CBA;
             border: none;
         }
-        .submit:hover{
+
+        .submit:hover {
             background-color: #3b30cc;
         }
-        .submit:active{
+
+        .submit:active {
             background-color: #3b30cc;
             transform: translateY(4px);
         }
-        .details{
+
+        .details {
             background-color: #252525;
             width: 500px;
         }
-        .detail{
+
+        .detail {
             display: flex;
             margin-bottom: 10px;
         }
-        .detail p{
+
+        .detail p {
             margin-left: 20px;
         }
-        .cinema_contact_details{
+
+        .cinema_contact_details {
             padding-left: 30px;
             padding-top: 30px;
             padding-bottom: 15px;
         }
-        .cinema_contact_details h1{
+
+        .cinema_contact_details h1 {
             font-size: 24px;
             margin-bottom: 30px;
         }
-        hr {
+
+        .details hr {
             margin-top: 20px;
             height: 3px;
             background-color: #0D0D0D;
             border: none;
         }
-        .help_desk{
+
+        .help_desk {
             padding-left: 30px;
             padding-top: 30px;
             padding-bottom: 15px;
         }
-        .help_desk h1{
+
+        .help_desk h1 {
             font-size: 24px;
             margin-bottom: 30px;
         }
-        .complaints{
+
+        .complaints {
             padding-left: 30px;
             padding-top: 30px;
         }
-        .complaints h1{
+
+        .complaints h1 {
             font-size: 24px;
             margin-bottom: 30px;
         }
-        @media(max-width:1650px){
-            .sub_container2{
+
+        @media (max-width: 1650px) {
+            .sub_container2 {
                 margin-top: 50px;
                 padding-left: 150px;
                 padding-right: 150px;
                 column-gap: 30px;
             }
-            .container{
+
+            .container {
                 padding-right: 130px;
                 padding-left: 130px;
             }
-            .sub_container{
+
+            .sub_container {
                 margin-left: 20px;
             }
         }
-        @media(max-width:1340px){
-            .sub_container2{
+
+        @media (max-width: 1340px) {
+            .sub_container2 {
                 margin-top: 30px;
                 padding-left: 50px;
                 padding-right: 50px;
                 column-gap: 30px;
             }
-            .container{
+
+            .container {
                 padding-right: 30px;
                 padding-left: 30px;
                 margin-top: 40px;
             }
         }
-        @media(max-width:1140px){
-            .sub_container2{
+
+        @media (max-width: 1140px) {
+            .sub_container2 {
                 flex-wrap: wrap;
                 justify-content: center;
             }
-            .details{
+
+            .details {
                 margin-top: 70px;
             }
-            .sub_container p{
+
+            .sub_container p {
                 width: 100%;
                 font-size: 16px;
                 text-align: center;
                 margin: 0 auto;
             }
-            .sub_container{
+
+            .sub_container {
                 text-align: center;
                 margin-left: 0px;
             }
-            .sub_container2{
+
+            .sub_container2 {
                 column-gap: 30px;
             }
-            .container{
+
+            .container {
                 margin-top: 40px;
                 text-align: center;
                 padding-right: 20px;
                 padding-left: 20px;
             }
-            @media(max-width:700px){
-                input{
+
+            .label {
+                font-size: 13px;
+            }
+
+            @media (max-width: 700px) {
+                .sub_container2 input {
                     width: 400px;
                     height: 40px;
                     font-size: 16px;
                 }
-                .label{
-                    font-size: 16px;
+
+                .label {
+                    font-size: 13px;
                 }
-                textarea{
+
+                textarea {
                     width: 400px;
                     height: 144px;
                 }
-                .details{
+
+                .details {
                     width: 400px;
                 }
-                .sub_container2 p{
+
+                .sub_container2 p {
                     font-size: 13px;
                 }
-                .details p{
+
+                .details p {
                     margin-top: 5px;
                 }
             }
-            @media(max-width:500px){
-                input{
+
+            @media (max-width: 500px) {
+                .sub_container2 input {
                     width: 400px;
                     height: 40px;
                 }
-                textarea{
+
+                textarea {
                     width: 400px;
                     height: 144px;
                 }
-                .sub_container p{
+
+                .sub_container p {
                     width: 100%;
                     font-size: 13px;
                     text-align: center;
                     margin: 0 auto;
                 }
-                h1{
+
+                h1 {
                     font-size: 20px;
                 }
-                .sub_container2 h1{
+
+                .sub_container2 h1 {
                     font-size: 20px;
                 }
-                .sub_container2 p{
+
+                .sub_container2 p {
                     font-size: 12px;
                 }
-                .cinema_contact_details{
+
+                .cinema_contact_details {
                     padding-left: 20px;
                 }
-                .help_desk{
+
+                .help_desk {
                     padding-left: 20px;
                 }
-                .complaints{
+
+                .complaints {
                     padding-left: 20px;
                 }
-                .cinema_contact_details h1{
+
+                .cinema_contact_details h1 {
                     margin-bottom: 20px;
                 }
-                .help_desk h1{
+
+                .help_desk h1 {
                     margin-bottom: 20px;
                 }
-                .complaints h1{
+
+                .complaints h1 {
                     margin-bottom: 20px;
                 }
             }
-            @media(max-width:450px){
-                input{
+
+            @media (max-width: 450px) {
+                .sub_container2 input {
                     width: 300px;
                     height: 30px;
                 }
-                textarea{
+
+                textarea {
                     width: 300px;
                     height: 110px;
                 }
-                .details{
+
+                .details {
                     width: 300px;
                 }
-                .sub_container2 h1{
+
+                .sub_container2 h1 {
                     font-size: 18px;
                 }
-                .help_desk .email{
+
+                .help_desk .email {
                     font-size: 10px;
                 }
-                .sub_container2 p{
+
+                .sub_container2 p {
                     margin-left: 10px;
                 }
             }
         }
     </style>
 </head>
-<%@include  file="nav.jsp" %>
+<%@include file="nav.jsp" %>
 <body>
     <div class="container">
         <h1>CONTACT US</h1>
-        <div class="sub_container"> 
-            <p>We’d love to connect with you! Whether you have questions, feedback, or need assistance 
-                with bookings,our team at Moonbeams Cinemas is here to help. Reach out and let us make
+        <div class="sub_container">
+            <p>We’d love to connect with you! Whether you have questions, feedback, or need assistance
+                with bookings, our team at Moonbeams Cinemas is here to help. Reach out and let us make
                 your experience truly special.</p>
         </div>
     </div>
@@ -311,33 +365,33 @@
             <div class="cinema_contact_details">
                 <h1>CINEMA CONTACT DETAILS</h1>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
             </div>
             <hr>
             <div class="help_desk">
                 <h1>HELP DESK</h1>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
                 <div class="detail">
-                    <img src="Letter.png" alt="" style="margin-left: 4px;"><p class="email">helpdeskmoonbeanscinemas@gmail.com</p>
+                    <img src="resources/IMG/Letter.png" alt="" style="margin-left: 4px;"><p class="email">helpdeskmoonbeanscinemas@gmail.com</p>
                 </div>
             </div>
             <hr>
             <div class="complaints">
                 <h1>COMPLAINTS</h1>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
                 <div class="detail">
-                    <img src="Ringer Volume.png" alt=""><p>077 7777 777</p>
+                    <img src="resources/IMG/Ringer Volume.png" alt=""><p>077 7777 777</p>
                 </div>
             </div>
         </div>
@@ -345,6 +399,5 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="resources/JS/contact.js"></script>
 </body>
-<%@include  file="footer.jsp" %>
+<%@include file="footer.jsp" %>
 </html>
-
