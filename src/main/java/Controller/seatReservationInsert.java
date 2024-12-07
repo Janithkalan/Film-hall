@@ -11,7 +11,6 @@ import dto.GoogleUser_DTO;
 import dto.Reservation_DTO;
 import dto.User_DTO;
 import java.io.IOException;
-import java.util.Random;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -26,14 +25,15 @@ import javax.servlet.http.HttpServletResponse;
 public class seatReservationInsert extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Gson gson = new Gson();
         JsonObject responseJson = new JsonObject();
         
         responseJson.addProperty("success", false);
         
-        Reservation_DTO reservation_DTO = gson.fromJson(request.getReader(), Reservation_DTO.class);
-        
+        String reservation_dto_json = request.getParameter("reservation_dto_json");
+        Reservation_DTO reservation_DTO = gson.fromJson(reservation_dto_json, Reservation_DTO.class);
+   
         String seats[] = reservation_DTO.getSeat_id();
         
         User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
@@ -42,8 +42,8 @@ public class seatReservationInsert extends HttpServlet {
         
         responseJson.addProperty("login_status", false);
         
-        Random random = new Random();
-        int invoice = random.nextInt(1000000) + 1;
+        int invoice = Integer.parseInt(request.getParameter("invoice"));
+        
         
         if (normal_user != null) {
             
@@ -120,6 +120,7 @@ public class seatReservationInsert extends HttpServlet {
                             + "INSERT INTO seat_reservation (invoice,hall_table_id,screen_times_id,month_table_id,movies_idmovies,seat_id,seat_status_id) "
                             + "VALUES ("+invoice+"," + reservation_DTO.getHall_id() + ", 1, "
                             + "" + reservation_DTO.getDate_id() + ", " + reservation_DTO.getMovie_id() + ", '" + seat + "', 3)");
+                    
                     
                 }
                 ConnectionDB.execute(""

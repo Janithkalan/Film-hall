@@ -294,7 +294,7 @@
                 <p>MOONBEAM CINEMAS MULTIPLEX</p>
                 <div class="datetime">
                     <i class="icon fa-solid fa-calendar-days" style="color: #ffffff;"></i>
-                    <div class="date"></div>
+                    <div class="date" id="date"></div>
                 </div>
                 <p class="IMAX2" id="hall_name"><b>IMAX 3D</b></p>
             </div>
@@ -572,7 +572,7 @@
                 <div class="submit_btn">
                     <button class="btn1" style="margin-right: 5px;">BACK</button>
                     <!--<button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>-->
-                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="navigateCheckout()">CONTINUE</button>
+                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="navigateCheckout(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>
                 </div>
             </div>
         </div>

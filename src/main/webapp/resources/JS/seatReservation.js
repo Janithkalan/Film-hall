@@ -3,18 +3,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-const dateElement = document.querySelector(".date");
+//const dateElement = document.querySelector(".date");
 
-function formatDate(date) {
-    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "De"];
-    return `${DAYS[date.getDay()]}, ${date.getDate()} ${MONTHS[date.getMonth()]} `;
-}
-
-setInterval(() => {
-    const now = new Date();
-    dateElement.textContent = formatDate(now);
-}, 200);
+//function formatDate(date) {
+//    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+//    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "De"];
+//    return `${DAYS[date.getDay()]}, ${date.getDate()} ${MONTHS[date.getMonth()]} `;
+//}
+//
+//setInterval(() => {
+//    const now = new Date();
+//    dateElement.textContent = formatDate(now);
+//}, 200);
+const today = new Date();
+const month_array = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const month = month_array[today.getMonth()];
 
 
 
@@ -114,6 +117,8 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
         const json = await response.json();
 
         if (json.success) {
+            
+            document.getElementById("date").innerHTML = current_date + ", " + month;
 
             document.getElementById("movie_name").innerHTML = json.movie_name;
             document.getElementById("hall_name").innerHTML = json.hall_name;
@@ -201,7 +206,7 @@ async function seatReservationProcess(current_movie, current_date, current_time,
         
 }
 
-function navigateCheckout(){
+function navigateCheckout(current_movie, current_date, current_time, current_hall){
     
     let moive_name = document.getElementById("movie_name").innerHTML;
     let hall_name = document.getElementById("hall_name").innerHTML;
@@ -209,12 +214,22 @@ function navigateCheckout(){
     let seat_count = document.getElementById("seat-count").innerHTML;
     let total_price = document.getElementById("total_price").innerHTML;
     
+    const reservation_dto = {
+                hall_id: current_hall,
+                screen_time: current_time,
+                date_id: current_date,
+                movie_id: current_movie,
+                seat_id: selectedSeats,
+                seat_status: 3
+            };
     
-    window.location.href = "checkout.jsp?param1=" + encodeURIComponent(moive_name) + 
+    
+    window.location.href = "checkout.jsp?param1=" + encodeURIComponent(moive_name) +
             "&param2=" + encodeURIComponent(hall_name)+ 
             "&param3=" + encodeURIComponent(time_name)+
             "&param4=" + encodeURIComponent(seat_count)+
-            "&param5=" + encodeURIComponent(total_price);
+            "&param5=" + encodeURIComponent(total_price)+
+            "&param6=" + encodeURIComponent(JSON.stringify(reservation_dto));
     
     
 }
