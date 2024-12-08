@@ -108,6 +108,7 @@ async function load_movies() {
                 div2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
                 div2_clone.querySelector(".span1").innerHTML = movie.name;
                 div2_clone.onclick = () => direct_timeReservation(movie.id);
+                
                 div1.appendChild(div2_clone);
             });
 

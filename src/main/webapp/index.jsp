@@ -61,7 +61,8 @@
                         <div class="small" id="div4">NOW SCREENING</div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            
         </div>    
         <div style="background-color: #0D0D0D;">
             <div>

@@ -5,7 +5,6 @@ const month = month_array[today.getMonth()];
 
 const urlParams = new URLSearchParams(window.location.search);
 const movieID = urlParams.get('param1');
-console.log("Movie ID:", movieID);
 
 async function timeReservationDetails() {
     const response = await fetch("timeReservation");
@@ -92,7 +91,6 @@ async function loadBtn() {
 
 
     const response = await fetch("button_load?movie_id=" + movie_id + "&day_id=" + day_id);
-    console.log("Loading buttons for movie_id:", movie_id, "day_id:", day_id);
 
     if (response.ok) {
 
