@@ -18,20 +18,19 @@
     
     <div class="im">
         <div class="details">
-            <span class="big" id="movie_title">VENOM: THE LAST DANCE</span>
-            <div class="small" id="movie_description">(U) . 1h 49M . Friday, October 25, 2024 . ENGLISH . ACTION<br>
-                Tom Hardy, Juno Temple</div>
+            <span class="big" id="movie_title"></span>
+            <div class="small" id="movie_description"></div>
         </div>
         <span class="imdb">
             <img src="resources/IMG/imdb.png" alt="imdb">
-            <span class="imdb_text">IMDb - <span id="movie_rating">7.9</span></span>
+            <span class="imdb_text">IMDb - <span id="movie_rating"></span></span>
         </span>
-        <a href="https://www.youtube.com/watch?v=__2bjWbetsA" target="_blank" id="movie_trailer" class="trail">
+        <a href="" target="_blank" id="movie_trailer" class="trail">
         <span class="trailer">
             <img src="resources/IMG/show.png" alt="trailer">
             WACTH TRAILER </span></a>
         
-        <img src="resources/IMG/venom.png" alt="Venom: The Last Dance" id="movie_poster">
+        <img src="" alt="Movie.png" id="movie_poster">
     </div>
     <div >
         <h1>BUY TICKETS</h1>
