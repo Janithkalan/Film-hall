@@ -56,12 +56,13 @@
             <div class="nowShow" id="div1">
                 <div class="hov" id="div2">
                     <a href="#" id="href1">
-                        <img class="thumbnail" src="" alt="VENOM: THE LAST DANCE" id="img1"></a>
+                        <img class="thumbnail" src="" alt="Movie.png" id="img1"></a>
                     <div class="big" id="div3"><span class="span1">VENOM: THE LAST DANCE</span>
                         <div class="small" id="div4">NOW SCREENING</div>
                     </div>
                 </div>
-            </div>
+            </div> 
+            
         </div>    
         <div style="background-color: #0D0D0D;">
             <div>

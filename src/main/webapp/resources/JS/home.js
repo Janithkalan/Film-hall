@@ -83,16 +83,18 @@ function resetInterval() {
 // -------------------------------------------------------------
 
 
+// Declare a global variable to store the movie data
+let movieData = null;
+
 async function load_movies() {
-
-
     const response = await fetch("load_movies");
 
     if (response.ok) {
-
         const json = await response.json();
 
         if (json.success) {
+            // Store the JSON object in the global variable
+            movieData = json;
 
             let div1 = document.getElementById("div1");
             let div2 = document.getElementById("div2");
@@ -102,25 +104,30 @@ async function load_movies() {
             div1.innerHTML = "";
 
             json.movie_list.forEach(movie => {
-               let div2_clone = div2.cloneNode(true);
-               div2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
-               div2_clone.querySelector(".span1").innerHTML = movie.name;
-               
-               div1.appendChild(div2_clone);
+                let div2_clone = div2.cloneNode(true);
+                div2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
+                div2_clone.querySelector(".span1").innerHTML = movie.name;
+                div2_clone.onclick = () => direct_timeReservation(movie.id);
+                
+                div1.appendChild(div2_clone);
             });
-            
+
             updiv1.innerHTML = "";
-            
+
             json.upcomming_movies_list.forEach(movie => {
-               let updiv2_clone = updiv2.cloneNode(true);
-               updiv2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
-               updiv2_clone.querySelector(".upspan1").innerHTML = movie.name;
-               
-               updiv1.appendChild(updiv2_clone);
+                let updiv2_clone = updiv2.cloneNode(true);
+                updiv2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
+                updiv2_clone.querySelector(".upspan1").innerHTML = movie.name;
+
+                updiv1.appendChild(updiv2_clone);
             });
-
         } else {
-
+            
         }
     }
 }
+
+function direct_timeReservation(movieId) {
+    window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
+}
+

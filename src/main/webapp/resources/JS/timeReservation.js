@@ -3,6 +3,9 @@ const today_date = today.getDate();
 const month_array = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const month = month_array[today.getMonth()];
 
+const urlParams = new URLSearchParams(window.location.search);
+const movieID = urlParams.get('param1');
+
 async function timeReservationDetails() {
     const response = await fetch("timeReservation");
 
@@ -32,6 +35,7 @@ async function timeReservationDetails() {
                 movie_dropdown.appendChild(option);
             });
 
+            
             movie_dropdown.addEventListener("change", () => {
                 let selectedId = parseInt(movie_dropdown.value);
                 let selectedMovie = json.timeReservationDetails.find(movie => movie.id === selectedId);
@@ -58,6 +62,9 @@ async function timeReservationDetails() {
                 });
 
             });
+            movie_dropdown.value = movieID;
+            movie_dropdown.dispatchEvent(new Event('change'));
+            loadBtn();
 
 
         } else {
