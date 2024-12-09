@@ -21,31 +21,20 @@ const month = month_array[today.getMonth()];
 
 
 
-let selectedSeatsCount = 0;
-let selectedSeats = [];
+
 let price_change = 0;
 
+
+const seatContainer = document.getElementById("selected_seat");
+const selectedSeats = [];
+let selectedSeatsCount = 0;
 
 function updateSeatCount() {
     document.getElementById("seat-count").textContent = selectedSeatsCount;
 }
 
-function updateSeatInfoButtons() {
-    const seatInfoButtons = document.querySelectorAll(".seat_info_btn");
-    for (let i = 0; i < seatInfoButtons.length; i++) {
-        if (selectedSeats[i]) {
-            seatInfoButtons[i].textContent = selectedSeats[i];
-            seatInfoButtons[i].style.display = 'block';
-        } else {
-            seatInfoButtons[i].textContent = "";
-            seatInfoButtons[i].style.display = 'none';
-        }
-    }
-}
-
 document.querySelectorAll(".seat").forEach(function (seat) {
     seat.addEventListener("click", function () {
-
         if (seat.classList.contains("selected")) {
             seat.classList.remove("selected");
             seat.style.backgroundColor = "#0000";
@@ -54,18 +43,32 @@ document.querySelectorAll(".seat").forEach(function (seat) {
             if (seatIndex > -1) {
                 selectedSeats.splice(seatIndex, 1);
             }
+            removeSeatButton(seat.textContent);
         } else {
             seat.classList.add("selected");
             seat.style.backgroundColor = "#261CBA";
             selectedSeatsCount++;
-
             selectedSeats.push(seat.textContent);
+            addSeatButton(seat.textContent);
         }
-
         updateSeatCount();
-        updateSeatInfoButtons();
     });
 });
+
+function addSeatButton(seatName) {
+    const seatButton = document.createElement("button");
+    seatButton.className = "seat_info_btn";
+    seatButton.textContent = seatName;
+    seatButton.setAttribute("data-seat", seatName);
+    seatContainer.appendChild(seatButton);
+}
+
+function removeSeatButton(seatName) {
+    const seatButton = seatContainer.querySelector(`button[data-seat='${seatName}']`);
+    if (seatButton) {
+        seatContainer.removeChild(seatButton);
+    }
+}
 
 //--------------------------------------------------------------------------------------------
 
@@ -117,7 +120,7 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
         const json = await response.json();
 
         if (json.success) {
-            
+
             document.getElementById("date").innerHTML = current_date + ", " + month;
 
             document.getElementById("movie_name").innerHTML = json.movie_name;
@@ -150,7 +153,7 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
             });
 
         } else {
-            
+
         }
 
 
@@ -162,28 +165,28 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 async function seatReservationProcess(current_movie, current_date, current_time, current_hall) {
 
 
-    
-            const reservation_dto = {
-                hall_id: current_hall,
-                screen_time: current_time,
-                date_id: current_date,
-                movie_id: current_movie,
-                seat_id: selectedSeats,
-                seat_status: 3
-            };
-            
-            const response = await fetch(
-                "seatReservationInsert",
-                {
-                    method: "POST",
-                    body: JSON.stringify(reservation_dto),
-                    headers: {
-                        "Content-Type": "application/json"
-                    }
+
+    const reservation_dto = {
+        hall_id: current_hall,
+        screen_time: current_time,
+        date_id: current_date,
+        movie_id: current_movie,
+        seat_id: selectedSeats,
+        seat_status: 3
+    };
+
+    const response = await fetch(
+            "seatReservationInsert",
+            {
+                method: "POST",
+                body: JSON.stringify(reservation_dto),
+                headers: {
+                    "Content-Type": "application/json"
                 }
-            );
-    
-            if (response.ok) {
+            }
+    );
+
+    if (response.ok) {
 
         const json = await response.json();
 
@@ -203,33 +206,33 @@ async function seatReservationProcess(current_movie, current_date, current_time,
             });
         }
     }
-        
+
 }
 
-function navigateCheckout(current_movie, current_date, current_time, current_hall){
-    
+function navigateCheckout(current_movie, current_date, current_time, current_hall) {
+
     let moive_name = document.getElementById("movie_name").innerHTML;
     let hall_name = document.getElementById("hall_name").innerHTML;
     let time_name = document.getElementById("time_name").innerHTML;
     let seat_count = document.getElementById("seat-count").innerHTML;
     let total_price = document.getElementById("total_price").innerHTML;
-    
+
     const reservation_dto = {
-                hall_id: current_hall,
-                screen_time: current_time,
-                date_id: current_date,
-                movie_id: current_movie,
-                seat_id: selectedSeats,
-                seat_status: 3
-            };
-    
-    
+        hall_id: current_hall,
+        screen_time: current_time,
+        date_id: current_date,
+        movie_id: current_movie,
+        seat_id: selectedSeats,
+        seat_status: 3
+    };
+
+
     window.location.href = "checkout.jsp?param1=" + encodeURIComponent(moive_name) +
-            "&param2=" + encodeURIComponent(hall_name)+ 
-            "&param3=" + encodeURIComponent(time_name)+
-            "&param4=" + encodeURIComponent(seat_count)+
-            "&param5=" + encodeURIComponent(total_price)+
+            "&param2=" + encodeURIComponent(hall_name) +
+            "&param3=" + encodeURIComponent(time_name) +
+            "&param4=" + encodeURIComponent(seat_count) +
+            "&param5=" + encodeURIComponent(total_price) +
             "&param6=" + encodeURIComponent(JSON.stringify(reservation_dto));
-    
-    
+
+
 }

@@ -112,6 +112,22 @@
             .seat_info{
                 display: flex;
             }
+            .selected_seat {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 5px;
+            }
+
+            .selected_seat button {
+                background-color: #261CBA;
+                width: 30px;
+                height: 30px;
+                margin-left: 5px;
+                color: white;
+                border: none;
+                cursor: pointer;
+                display: inline-block;
+            }
             .total{
                 display: flex;
             }
@@ -125,12 +141,7 @@
                 margin-top: 18px;
                 margin-left: 30px;
             }
-            .selected_seat button{
-                background-color: #261CBA;
-                width: 30px;
-                height: 30px;
-                margin-left: 5px;
-            }
+
             .submit_btn{
                 text-align: right;
             }
@@ -168,18 +179,7 @@
                 font-size: 28px;
                 margin-bottom: 15px;
             }
-            .seat_info_btn {
-                color: white;
-                width: 30px;
-                height: 30px;
-                text-align: center;
-                margin: 2px;
-                display: none;
-            }
-            .selected_seat_sub {
-                display: flex;
-                justify-content: center;
-            }
+
 
             @media (max-width: 1650px){
                 .container{
@@ -552,15 +552,8 @@
                 <div class="total_bar">
                     <div class="seat_info">
                         <p style="margin-left: 20px;">SEAT INFO </p>
-                        <div class="selected_seat">
-                            <div class="selected_seat_sub">
-                                <button class="seat_info_btn"></button>
-                                <button class="seat_info_btn"></button>
-                            </div>
-                            <div class="selected_seat_sub">
-                                <button class="seat_info_btn"></button>
-                                <button class="seat_info_btn"></button>
-                            </div>
+                        <div class="selected_seat" id="selected_seat">
+
                         </div>
                     </div>
                     <div class="total">
