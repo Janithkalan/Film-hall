@@ -293,32 +293,32 @@
 
     </style>
 </head>
-<body>
-<%@include  file="nav.jsp" %>
+<body onload="comingSoonDetails()">
+    <%@include  file="nav.jsp" %>
     <div class="im">
         <div class="details">
-            <span class="big" id="movie_title">RED ONE</span>
-            <div class="small" id="movie_description">(U) . 2h 03m . Friday, November8, 2024 . ENGLISH . ACTION<br>
-                Dwayne Johnson, Chris Evans</div>
+            <span class="big" id="movie_title"></span>
+            <div class="small" id="movie_description"></div>
         </div>
         <span class="imdb">
-            <img src="img/Imdb.png" alt="imdb">
-            <span class="imdb_text">IMDb - <span id="movie_rating">7.9</span></span>
+            <img src="resources/IMG/imdb.png" alt="imdb">
+            <span class="imdb_text">IMDb - <span id="movie_rating"></span></span>
         </span>
-        <a href="https://www.youtube.com/watch?v=U8XH3W0cMss&ab_channel=AmazonMGMStudios" target="_blank" id="movie_trailer" class="trail">
+        <a href="" target="_blank" id="movie_trailer" class="trail">
             <span class="trailer">
-                <img src="img/show.png" alt="trailer">
+                <img src="resources/IMG/show.png" alt="trailer">
                 WACTH TRAILER </span></a>
 
-        <img src="img/redone.png" alt="Venom: The Last Dance" id="movie_poster">
+        <img src="" alt="Movie.png" id="movie_poster">
     </div>
     <div class="background">
         <div class="storyline">
             <h1 class="s-title">STORY LINE</h1>
-            <P class="Story-text">After Santa Claus (code name: Red One) is kidnapped, the North Pole's Head of Security (Dwayne Johnson) must team up with the world's most infamous bounty hunter (Chris Evans) in a globe-trotting, action-packed mission to save Christmas.</P>
+            <P class="Story-text" id="story_text"></P>
             <button class="comingsoon-btn">COMING SOON</button>
         </div>
     </div>
+    <script src="resources/JS/comming_soon.js"></script>
 </body>
 <%@include  file="footer.jsp" %>
 </html>
