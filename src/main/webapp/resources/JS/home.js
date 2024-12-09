@@ -118,7 +118,7 @@ async function load_movies() {
                 let updiv2_clone = updiv2.cloneNode(true);
                 updiv2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
                 updiv2_clone.querySelector(".upspan1").innerHTML = movie.name;
-
+                updiv2_clone.onclick = () => direct_comingSoon(movie.id);
                 updiv1.appendChild(updiv2_clone);
             });
         } else {
@@ -131,3 +131,6 @@ function direct_timeReservation(movieId) {
     window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
 }
 
+function direct_comingSoon(movieId) {
+    window.location.href = "comming_soon.jsp?param1=" + encodeURIComponent(movieId);
+}
