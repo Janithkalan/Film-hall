@@ -254,7 +254,7 @@
 <body>
     <div class="nav_body">
         <header>
-            <a class="logo" href="/"><img src="resources/IMG/logo.png" alt="logo"></a>
+            <a class="logo" href="index.jsp"><img src="resources/IMG/logo.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
                     <li><a href="index.jsp">HOME</a></li>

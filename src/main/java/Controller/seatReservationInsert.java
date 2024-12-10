@@ -105,6 +105,7 @@ public class seatReservationInsert extends HttpServlet {
 //            String amount = resultSet.getString("total");
             String seat_list_string = String.join(", ", seats);
             String subject = "MoonBeams Cinema Invoice";
+            String user_email = normal_user.getEmail();
                 String emailContent = "<!DOCTYPE html>" +
                         "<html>" +
                         "<head>" +
@@ -129,7 +130,7 @@ public class seatReservationInsert extends HttpServlet {
                         "</html>";
 
                 
-                Mail.sendMail("sudheeradilum@gmail.com", subject, emailContent);
+                Mail.sendMail(user_email, subject, emailContent);
             responseJson.addProperty("login_status", true);
             responseJson.addProperty("success", true);
 
@@ -200,6 +201,7 @@ public class seatReservationInsert extends HttpServlet {
 //            String amount = resultSet.getString("total");
             String seat_list_string = String.join(", ", seats);
             String subject = "MoonBeams Cinema Invoice";
+            String user_email = google_user.getEmail();
                 String emailContent = "<!DOCTYPE html>" +
                         "<html>" +
                         "<head>" +
@@ -224,7 +226,7 @@ public class seatReservationInsert extends HttpServlet {
                         "</html>";
 
                 
-                Mail.sendMail("sudheeradilum@gmail.com", subject, emailContent);
+                Mail.sendMail(user_email, subject, emailContent);
             responseJson.addProperty("login_status", true);
             responseJson.addProperty("success", true);
 
