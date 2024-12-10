@@ -103,8 +103,8 @@ public class seatReservationInsert extends HttpServlet {
             
 //            ResultSet resultSet = ConnectionDB.execute("SELECT total FROM invoice_table WHERE invoice = '"+invoice+"'");
 //            String amount = resultSet.getString("total");
-            
-            String subject = "Feedback Form Submission";
+            String seat_list_string = String.join(", ", seats);
+            String subject = "MoonBeams Cinema Invoice";
                 String emailContent = "<!DOCTYPE html>" +
                         "<html>" +
                         "<head>" +
@@ -119,11 +119,11 @@ public class seatReservationInsert extends HttpServlet {
                         "</head>" +
                         "<body>" +
                         "<div class='container'>" +
-                        "<h2>Feedback Form Submission</h2>" +
+                        "<h2>MoonBeams Cinema Invoice</h2>" +
                         "<p><strong>Invoice Number:</strong> <span class='highlight'>" + invoice + "</span></p>" +
                         "<p><strong>Email:</strong> <span class='highlight'>" + normal_user.getEmail() + "</span></p>" +
                         "<p><strong>Name:</strong> <span class='highlight'>" + normal_user.getFirst_name() + " " + normal_user.getLast_name() + "</span></p>" +
-//                        "<p><strong>Amount:</strong> <span class='highlight'>" + amount + "</span></p>" +
+                        "<p><strong>Seats:</strong> <span class='highlight'>" + seat_list_string + "</span></p>" +
                         "</div>" +
                         "</body>" +
                         "</html>";
@@ -198,7 +198,7 @@ public class seatReservationInsert extends HttpServlet {
             
             //            ResultSet resultSet = ConnectionDB.execute("SELECT total FROM invoice_table WHERE invoice = '"+invoice+"'");
 //            String amount = resultSet.getString("total");
-            
+            String seat_list_string = String.join(", ", seats);
             String subject = "MoonBeams Cinema Invoice";
                 String emailContent = "<!DOCTYPE html>" +
                         "<html>" +
@@ -218,7 +218,7 @@ public class seatReservationInsert extends HttpServlet {
                         "<p><strong>Invoice Number:</strong> <span class='highlight'>" + invoice + "</span></p>" +
                         "<p><strong>Email:</strong> <span class='highlight'>" + google_user.getEmail() + "</span></p>" +
                         "<p><strong>Name:</strong> <span class='highlight'>" + google_user.getName() + "</span></p>" +
-//                        "<p><strong>Amount:</strong> <span class='highlight'>" + amount + "</span></p>" +
+                        "<p><strong>Seats:</strong> <span class='highlight'>" + seat_list_string + "</span></p>" +
                         "</div>" +
                         "</body>" +
                         "</html>";

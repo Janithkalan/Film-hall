@@ -174,8 +174,14 @@ function pending_update(){
 }
 
 function navigateCheckout(current_movie, current_date, current_time, current_hall) {
-
-    let moive_name = document.getElementById("movie_name").innerHTML;
+    
+    if (selectedSeats.length == 0){
+        
+        swal("", "You need to select a seat", "error");
+        
+    } else {
+        
+        let moive_name = document.getElementById("movie_name").innerHTML;
     let hall_name = document.getElementById("hall_name").innerHTML;
     let time_name = document.getElementById("time_name").innerHTML;
     let seat_count = document.getElementById("seat-count").innerHTML;
@@ -199,4 +205,9 @@ function navigateCheckout(current_movie, current_date, current_time, current_hal
             "&param6=" + encodeURIComponent(JSON.stringify(reservation_dto));
 
 
+        
+        
+    }
+
+    
 }
