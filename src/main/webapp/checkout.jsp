@@ -474,9 +474,10 @@
             </div>
 
         </div>
-        <script src="resources/JS/checkout.js"></script>          
+                
         <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="resources/JS/checkout.js"></script>  
     </body>
     <%@include  file="footer.jsp" %>
 </html>
