@@ -258,7 +258,7 @@
             <nav>
                 <ul class="nav__links">
                     <li><a href="index.jsp">HOME</a></li>
-                    <li><a href="#nav_movies_id">MOVIES</a></li>
+                    <li><a href="index.jsp#nav_movies_id">MOVIES</a></li>
                     <li><a href="deals.jsp">EXCLUSIVE DEALS</a></li>
                     <li><a href="contact.jsp">CONTACT US</a></li>
                     <div class="search-container" style="margin-right: 100px;">
