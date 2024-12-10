@@ -30,12 +30,13 @@ function calculatePrice(total_price, hall_name) {
     }
     final_price = conv + vat + total_price;
     document.getElementById("final_price").innerHTML = final_price;
-
+    
 }
+
 
 async function paymentProcess(reservation_dto_json) {
 
-
+    
     const response = await fetch("checkout?final_price=" + final_price);
 
     if (response.ok) {
@@ -46,7 +47,7 @@ async function paymentProcess(reservation_dto_json) {
         payhere.onCompleted = async function onCompleted(orderId) {
             const reservation_dto_json_encoded = encodeURIComponent(JSON.stringify(reservation_dto_json));
             const response = await fetch("seatReservationInsert?reservation_dto_json="+reservation_dto_json_encoded+"&invoice="+orderId);
-            
+            const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice="+orderId);
             if (response.ok){
                 const json = await response.json();
                 if (json.success){

@@ -23,6 +23,7 @@ public class Reservation_DTO implements Serializable {
     private int date_id;
 
     private int seat_status;
+    
 
     public Reservation_DTO() {
     
@@ -111,5 +112,4 @@ public class Reservation_DTO implements Serializable {
     public void setSeat_id(String[] seat_id) {
         this.seat_id = seat_id;
     }
-
 }

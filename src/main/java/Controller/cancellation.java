@@ -49,12 +49,15 @@ public class cancellation extends HttpServlet {
                     + "    weekdays.weekday, "
                     + "    seat_reservation.seat_id, "
                     + "    hall_table.hall_name, "
-                    + "    screen_times.show_time "
+                    + "    screen_times.show_time, "
+                    + "    movies.name, "
+                    + "    invoice_table.total "
                     + "FROM seat_reservation "
                     + "INNER JOIN invoice_table ON seat_reservation.invoice = invoice_table.invoice "
                     + "INNER JOIN hall_table ON seat_reservation.hall_table_id = hall_table.id "
                     + "INNER JOIN screen_times ON seat_reservation.screen_times_id = screen_times.id "
                     + "INNER JOIN month_table ON seat_reservation.month_table_id = month_table.id "
+                    + "INNER JOIN movies ON seat_reservation.movies_idmovies = movies.idmovies "
                     + "LEFT JOIN google_users ON invoice_table.google_users_email = google_users.email "
                     + "LEFT JOIN user ON invoice_table.user_email = user.email "
                     + "INNER JOIN weekdays ON month_table.weekdays_id = weekdays.id "
@@ -86,6 +89,8 @@ public class cancellation extends HttpServlet {
                 cancellationDTO.setWeekday(resultSet.getString("weekdays.weekday"));
                 cancellationDTO.setHall(resultSet.getString("hall_table.hall_name"));
                 cancellationDTO.setShow_time(resultSet.getString("screen_times.show_time"));
+                cancellationDTO.setMovie_name(resultSet.getString("movies.name"));
+                cancellationDTO.setTotal_price(resultSet.getInt("invoice_table.total"));
 
                 // Add seat_id to the list (if multiple seats for the same invoice)
                 String seatId = resultSet.getString("seat_id");
