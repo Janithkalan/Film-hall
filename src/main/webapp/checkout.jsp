@@ -434,13 +434,14 @@
                             <img src="resources/IMG/master.png" alt="MasterCard">
                         </div>
                         <div class="terms">
-                            <input type="checkbox" id="terms">
-                            <label for="terms">I agree to the <a href="terms_and_conditions.jsp"><u>Terms & conditions</u></a></label>
-                        </div>
-                        <div class="terms">
                             <input type="checkbox" id="coupon">
                             <label for="terms">Apply coupon code</label>
                         </div>
+                        <div class="terms">
+                            <input type="checkbox" id="terms">
+                            <label for="terms">I agree to the <a href="terms_and_conditions.jsp"><u>Terms & conditions</u></a></label>
+                        </div>
+                        
 
                         <div class="button-container">
                             <button class="button-2" onclick='paymentProcess(<%= gson.toJson(reservation_dto)%>)'>PAY NOW</button>

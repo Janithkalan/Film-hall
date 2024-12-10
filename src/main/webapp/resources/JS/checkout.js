@@ -36,8 +36,8 @@ function calculatePrice(total_price, hall_name) {
 
 async function paymentProcess(reservation_dto_json) {
 
-
-    const response = await fetch("checkout?final_price=" + final_price);
+    if (document.getElementById("terms").checked){
+        const response = await fetch("checkout?final_price=" + final_price);
 
     if (response.ok) {
         const json = await response.json();
@@ -49,33 +49,48 @@ async function paymentProcess(reservation_dto_json) {
             const response = await fetch("seatReservationInsert?reservation_dto_json=" + reservation_dto_json_encoded + "&invoice=" + orderId);
             const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice=" + orderId);
             
-
+            if (response.ok){
+                
+                const json = await response.json();
+                if (json.success){
+                    swal("", "Thank You for reservation", "success").then(() => {
+                window.location = "index.jsp";
+            });
+                }
+               
+            }
         };
 
         // Payment window closed
         payhere.onDismissed = function onDismissed() {
-            // Note: Prompt user to pay again or show an error page
-            console.log("Payment dismissed");
+            swal({
+                title: "",
+                text: "Payment dismissed",
+                icon: "warning",
+            });
         };
 
         // Error occurred
         payhere.onError = function onError(error) {
-            // Note: show an error page
-            console.log("Error:" + error);
+            swal({
+                title: "",
+                text: "Error" + error,
+                icon: "error",
+            });
         };
 
         // Put the payment variables here
         var payment = {
             "sandbox": true,
-            "merchant_id": "1228948", // Replace your Merchant ID
-            "return_url": "http://localhost:8080/CinemaHall/checkout.jsp", // Important
-            "cancel_url": "http://localhost:8080/CinemaHall/checkout.jsp", // Important
+            "merchant_id": "1228948", 
+            "return_url": "http://localhost:8080/CinemaHall/checkout.jsp", 
+            "cancel_url": "http://localhost:8080/CinemaHall/checkout.jsp", 
             "notify_url": "http://sample.com/notify",
             "order_id": json.orderId,
             "items": "",
             "amount": final_price,
             "currency": json.currency,
-            "hash": json.hash, // *Replace with generated hash retrieved from backend
+            "hash": json.hash, 
             "first_name": json.first_name,
             "last_name": json.last_name,
             "email": "sudheeradilum@gmail.com",
@@ -93,9 +108,15 @@ async function paymentProcess(reservation_dto_json) {
         payhere.startPayment(payment);
 
 
+    } 
     } else {
-        swal("", "You must agree to terms and conditions", "error");
+        swal({
+                title: "",
+                text: "You must agree to terms and conditions",
+                icon: "error",
+            });
     }
+    
 
 }
 
