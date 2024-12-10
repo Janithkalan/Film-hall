@@ -4,6 +4,8 @@
  */
 
 let final_price;
+let fixed_price;
+let service_fee = 30;
 
 function calculatePrice(total_price, hall_name) {
 
@@ -28,14 +30,68 @@ function calculatePrice(total_price, hall_name) {
         conv = 200;
         vat = 50;
     }
+
     final_price = conv + vat + total_price;
+    fixed_price = final_price;
     document.getElementById("final_price").innerHTML = final_price;
 
 }
 
 const hasSpace = / /;
+let temp_code = "";
+let coupon_status = false;
+
+async function coupon_search() {
+
+    if (event.key !== "Control") {
+        if (document.getElementById("coupon").value != "") {
+
+            const response = await fetch("coupon_code?code=" + document.getElementById("coupon").value);
+            if (response.ok) {
+
+                const  json = await response.json();
+
+                if (json.success) {
+
+                    final_price = final_price - json.amount;
+                    temp_code = json.code;
+                    coupon_status = true;
+
+                    if (final_price <= 0) {
+                        document.getElementById("final_price").innerHTML = service_fee;
+                    } else {
+                        document.getElementById("final_price").innerHTML = final_price + service_fee;
+                    }
+
+                } else {
+                    final_price = fixed_price;
+                    document.getElementById("final_price").innerHTML = fixed_price;
+                    coupon_status = false;
+                }
+            }
+
+        } else {
+            final_price = fixed_price;
+            document.getElementById("final_price").innerHTML = fixed_price;
+            coupon_status = false;
+        }
+    }
+
+
+
+}
+
+
 async function paymentProcess(reservation_dto_json) {
 
+    if (final_price <= 0) {
+        if (temp_code != "") {
+            final_price = service_fee;
+            coupon_status == true;
+
+        }
+
+    }
 
     if (document.getElementById("terms").checked) {
         const response = await fetch("checkout?final_price=" + final_price);
@@ -46,20 +102,45 @@ async function paymentProcess(reservation_dto_json) {
 
             // Payment completed. It can be a successful failure.
             payhere.onCompleted = async function onCompleted(orderId) {
-                const reservation_dto_json_encoded = encodeURIComponent(JSON.stringify(reservation_dto_json));
-                const response = await fetch("seatReservationInsert?reservation_dto_json=" + reservation_dto_json_encoded + "&invoice=" + orderId);
-                const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice=" + orderId);
 
-                if (response.ok) {
+                if (coupon_status == true) {
+                    const response3 = await fetch("remove_coupon?code=" + temp_code);
 
-                    const json = await response.json();
-                    if (json.success) {
-                        swal("", "Thank You for reservation", "success").then(() => {
-                            window.location = "index.jsp";
-                        });
+                    if (response3.ok) {
+                        const json = await response3.json();
+                        if (json.success) {
+                            const reservation_dto_json_encoded = encodeURIComponent(JSON.stringify(reservation_dto_json));
+                            const response = await fetch("seatReservationInsert?reservation_dto_json=" + reservation_dto_json_encoded + "&invoice=" + orderId);
+                            const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice=" + orderId);
+                            if (response.ok) {
+
+                                const json = await response.json();
+                                if (json.success) {
+                                    swal("", "Thank You for reservation", "success").then(() => {
+                                        window.location = "index.jsp";
+                                    });
+                                }
+
+                            }
+                        }
                     }
+                } else {
+                    const reservation_dto_json_encoded = encodeURIComponent(JSON.stringify(reservation_dto_json));
+                    const response = await fetch("seatReservationInsert?reservation_dto_json=" + reservation_dto_json_encoded + "&invoice=" + orderId);
+                    const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice=" + orderId);
+                    if (response.ok) {
 
+                        const json = await response.json();
+                        if (json.success) {
+                            swal("", "Thank You for reservation", "success").then(() => {
+                                window.location = "index.jsp";
+                            });
+                        }
+
+                    }
                 }
+
+
             };
 
             // Payment window closed
@@ -117,6 +198,7 @@ async function paymentProcess(reservation_dto_json) {
             icon: "error",
         });
     }
+
 
 
 }

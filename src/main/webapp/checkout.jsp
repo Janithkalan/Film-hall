@@ -420,8 +420,8 @@
                                    value="<%= (normal_user != null) ? normal_user.getEmail() : google_user.getEmail()%>" disabled>
                         </div>
                         <div class="input-group">
-                            <label for="phone">PHONE</label>
-                            <input type="text" id="phone" name="phone" value="">
+                            <label for="phone">COUPON CODE</label>
+                            <input type="text" id="coupon" name="coupon" value="" onkeyup="coupon_search()">
                         </div>
                     </div>
                 </div>
@@ -432,10 +432,6 @@
                         <div class="payment-mode">
                             <img src="resources/IMG/visa.png" alt="Visa">
                             <img src="resources/IMG/master.png" alt="MasterCard">
-                        </div>
-                        <div class="terms">
-                            <input type="checkbox" id="coupon">
-                            <label for="terms">Apply coupon code</label>
                         </div>
                         <div class="terms">
                             <input type="checkbox" id="terms">
@@ -456,6 +452,7 @@
                                 <div><%= seat_count%></div>
                                 <div>VAT</div>
                                 <div>Conv. Fees</div>
+                                <div>Service fee Rs.30 (for coupon users only)</div>
                             </div>
                             <!-- Right side: Prices -->
                             <div class="seat-prices">

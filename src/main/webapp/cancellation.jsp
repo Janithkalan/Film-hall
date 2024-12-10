@@ -258,15 +258,15 @@
             <div class="info-row">
                 <div class="info-group">
                     <label for="name">NAME</label>
-                    <input type="text" id="name" value="" style="border: none ; border-bottom: 2px solid #716F6F; background-color: 0D0D0D;">
+                    <input type="text" id="name" value="" style="border: none ; border-bottom: 2px solid #716F6F; background-color: 0D0D0D;" disabled>
                 </div>
                 <div class="info-group">
                     <label for="email">EMAIL</label>
-                    <input type="email" id="email" value="" style="border: none ; border-bottom: 2px solid #716F6F; text-decoration: underline;">
+                    <input type="email" id="email" value="" style="border: none ; border-bottom: 2px solid #716F6F; text-decoration: underline;" disabled>
                 </div>
                 <div class="info-group">
                     <label for="phone">PHONE</label>
-                    <input type="text" id="phone" value="" style="border: none ; border-bottom: 2px solid #716F6F;">
+                    <input type="text" id="phone" value="" style="border: none ; border-bottom: 2px solid #716F6F;" disabled>
                 </div>
             </div>
             <h3>INVOICE DETAILS</h3>

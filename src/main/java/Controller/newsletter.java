@@ -23,7 +23,9 @@ public class newsletter extends HttpServlet {
    
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
+        
+        try {
+            String email = request.getParameter("email");
         String subject = "Thank You for Subscribing to Moonbeams Cinema Newsletter";
                 String emailContent = "<!DOCTYPE html>" +
                         "<html>" +
@@ -51,6 +53,10 @@ public class newsletter extends HttpServlet {
                 
                 
           ConnectionDB.execute("INSERT IGNORE INTO newsletter (email) VALUES ('"+email+"')");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
         
         
         

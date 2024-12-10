@@ -47,7 +47,7 @@
                     <li><a href="deals.jsp">EXCLUSIVE DEALS</a></li>
                     <li><a href="#nav_movies_id">ABOUT US</a></li>
                     <li><a href="contact.jsp">CONTACT US</a></li>
-                    <li><a href="#">BOOKING CANCELLATION</a></li>
+                    <li><a href="cancellation.jsp">BOOKING CANCELLATION</a></li>
                 </ul>
             </div>
             <div class="footer-policies">
