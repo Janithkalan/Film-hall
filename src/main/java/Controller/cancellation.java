@@ -101,6 +101,7 @@ public class cancellation extends HttpServlet {
             responseObject.addProperty("success", true);
 
         } catch (Exception e) {
+            
             e.printStackTrace();
             responseObject.addProperty("error", e.getMessage()); // Add error to response
         }

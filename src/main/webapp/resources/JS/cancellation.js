@@ -9,6 +9,7 @@ var user_name;
 
 async function load_data() {
     if (event.key !== "Control") {
+        
         let textResult = document.getElementById("invoice-id").value;
 
         const response = await fetch("cancellation?textResult=" + textResult);
