@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-async function searchResults() {
+async function searchResults(status1) {
     let textResult = document.getElementById("search-input").value;
     let dropdown = document.getElementById("dropdown");
     let dropdown_item = document.getElementById("dropdown-item");
@@ -25,6 +25,7 @@ async function searchResults() {
                     dropdown_item_clone.querySelector(".resultImg").src = "resources/IMG/movies_posters/" + movie.id + ".png";
                     dropdown_item_clone.querySelector(".resultName").innerHTML = movie.name;
                     console.log(movie.name);
+                    dropdown_item_clone.onclick = () => direct_timeReservation(status1, movie.id);
                     dropdown.appendChild(dropdown_item_clone);
 
                 });
@@ -36,9 +37,18 @@ async function searchResults() {
             }
 
         } else {
-           
+
         }
     }
 
+
+}
+
+function direct_timeReservation(status1, movieId) {
+    if (status1) {
+        window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
+    } else {
+        swal("", "You need to login first", "error");
+    }
 
 }

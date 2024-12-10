@@ -19,11 +19,9 @@ async function login() {
         const json = await response.json();
 
         if (json.success) {
-
-            swal({
-                title: "",
-                text: "Success",
-                icon: "success",
+            
+             swal("", "Success", "success").then(() => {
+                window.location = "index.jsp";
             });
 
         } else {

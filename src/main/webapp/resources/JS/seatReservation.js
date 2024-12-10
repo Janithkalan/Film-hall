@@ -3,18 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-//const dateElement = document.querySelector(".date");
 
-//function formatDate(date) {
-//    const DAYS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-//    const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "De"];
-//    return `${DAYS[date.getDay()]}, ${date.getDate()} ${MONTHS[date.getMonth()]} `;
-//}
-//
-//setInterval(() => {
-//    const now = new Date();
-//    dateElement.textContent = formatDate(now);
-//}, 200);
 const today = new Date();
 const month_array = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const month = month_array[today.getMonth()];
@@ -130,19 +119,7 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 
             json.seatReservationDetails.forEach(reservation => {
 
-                if (reservation.seat_status === 4) {
-                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
-                    temp_btn.classList.add("pendingSeat");
-                    temp_btn.disabled = true;
-
-                } else if (reservation.seat_status === 2) {
-
-                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
-                    temp_btn.classList.add("unavailableSeat");
-                    temp_btn.disabled = true;
-
-
-                } else if (reservation.seat_status === 3) {
+                if (reservation.seat_status === 3) {
 
                     let temp_btn = document.getElementById("" + reservation.seat_id + "");
                     temp_btn.classList.add("reservedSeat");
@@ -186,27 +163,14 @@ async function seatReservationProcess(current_movie, current_date, current_time,
             }
     );
 
-    if (response.ok) {
 
-        const json = await response.json();
+}
 
-        if (json.success) {
 
-            swal({
-                title: "",
-                text: "nononoonono",
-                icon: "success"
-            });
-
-        } else {
-            swal({
-                title: "",
-                text: "error",
-                icon: "error"
-            });
-        }
-    }
-
+function pending_update(){
+    
+    
+    
 }
 
 function navigateCheckout(current_movie, current_date, current_time, current_hall) {

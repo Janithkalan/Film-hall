@@ -5,11 +5,11 @@
 --%>
 
 <%@page import="com.google.gson.Gson"%>
-<%@page import="dto.GoogleUser_DTO"%>
-<%@page import="dto.User_DTO"%>
 <%@ page import="java.util.List" %>
 <%@ page import="dto.Reservation_DTO" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
 <%
     String moive_name = request.getParameter("param1");
     String hall_name = request.getParameter("param2");
@@ -21,10 +21,39 @@
     Gson gson = new Gson();
     Reservation_DTO reservation_dto = gson.fromJson(reservation_dto_json, Reservation_DTO.class);
 
-    User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
-    GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+    User_DTO normal_user1 = (User_DTO) request.getSession().getAttribute("user");
+    GoogleUser_DTO google_user1 = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
 
-%>
+    if (normal_user1 == null && google_user1 == null) {
+
+%> 
+<html>
+    <head>
+        <title>Error</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <style>
+            body {
+                
+                background-color: black !important;
+                font-family: 'Poppins', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+
+            swal("", "You need to login first", "error").then(() => {
+                window.location = "index.jsp";
+            });
+
+        </script>
+
+    </body>
+</html>
+
+
+<%} else {
+%> 
 
 
 <!DOCTYPE html>
@@ -34,7 +63,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Movie Ticket Booking</title>
         <style>
-            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
             body{
                 margin: 0;
                 font-family: "Poppins", sans-serif;
@@ -371,8 +399,8 @@
             <div class="container">
                 <div class="title"><%= moive_name%></div>
                 <div class="subtitle">
-                    MOONBEAM CINEMAS MULTIPLEX - Havelock City Mall 
-                    Thu, 28 Nov &nbsp; | &nbsp; <%= hall_name%> &nbsp; | &nbsp;
+                    MOONBEAM CINEMAS MULTIPLEX - Havelock City Mall,  
+                     <%= reservation_dto.getDate_id() %> Dec &nbsp; | &nbsp; <%= hall_name%> &nbsp; | &nbsp;
                     <span class="time-box"><%= time_name%></span>
                     <br><br>
                     <div class="divider"></div>
@@ -407,11 +435,14 @@
                         </div>
                         <div class="terms">
                             <input type="checkbox" id="terms">
-                            <label for="terms">I agree to the <a href="#"><u>Terms & conditions</u></a></label>
+                            <label for="terms">I agree to the <a href="terms_and_conditions.jsp"><u>Terms & conditions</u></a></label>
+                        </div>
+                        <div class="terms">
+                            <input type="checkbox" id="coupon">
+                            <label for="terms">Apply coupon code</label>
                         </div>
 
                         <div class="button-container">
-                            <button class="button">BACK</button>
                             <button class="button-2" onclick='paymentProcess(<%= gson.toJson(reservation_dto)%>)'>PAY NOW</button>
                         </div>
                     </div>
@@ -444,6 +475,12 @@
         </div>
         <script src="resources/JS/checkout.js"></script>          
         <script type="text/javascript" src="https://www.payhere.lk/lib/payhere.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     </body>
     <%@include  file="footer.jsp" %>
 </html>
+
+<%    }
+
+
+%>

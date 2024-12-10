@@ -86,7 +86,7 @@ function resetInterval() {
 // Declare a global variable to store the movie data
 let movieData = null;
 
-async function load_movies() {
+async function load_movies(status) {
     const response = await fetch("load_movies");
 
     if (response.ok) {
@@ -107,7 +107,7 @@ async function load_movies() {
                 let div2_clone = div2.cloneNode(true);
                 div2_clone.querySelector(".thumbnail").src = "resources/IMG/movies_posters/" + movie.id + ".png";
                 div2_clone.querySelector(".span1").innerHTML = movie.name;
-                div2_clone.onclick = () => direct_timeReservation(movie.id);
+                div2_clone.onclick = () => direct_timeReservation(status,movie.id);
                 
                 div1.appendChild(div2_clone);
             });
@@ -127,7 +127,12 @@ async function load_movies() {
     }
 }
 
-function direct_timeReservation(movieId) {
-    window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
+function direct_timeReservation(status,movieId) {
+    if (status){
+        window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
+    }else{
+        swal("", "You need to login first", "error");
+    }
+    
 }
 

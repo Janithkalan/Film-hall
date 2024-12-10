@@ -1,5 +1,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    User_DTO normal_user1 = (User_DTO) request.getSession().getAttribute("user");
+    GoogleUser_DTO google_user1 = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+    boolean status;
+    if (normal_user1 == null && google_user1 == null) {
+        status = false;
+    } else {
+        status = true;
+    }
+
+%>
 
 <html lang="en">
     <head>
@@ -7,7 +18,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Home Page</title>
         <link rel="stylesheet" type="text/css" href="resources/CSS/home.css">
-
 
         <style>
             .thumbnail{
@@ -20,23 +30,23 @@
                 padding-right: 10px;
                 margin-top: -6px;
             }
-            
+
             #watch img{
                 width: 40px !important;
                 padding-right: 10px;
                 margin-top: -6px;
             }
-            
+
             .more a span{
                 display: flex !important;
             }
-            
+
         </style>
 
     </head>
 
     <%@include  file="nav.jsp" %>
-    <body onload="load_movies()">
+    <body onload="load_movies(<%= status%>)">
         <div class="slider" >
             <div class="more">
                 <p id="text"></p>
@@ -62,7 +72,7 @@
                     </div>
                 </div>
             </div> 
-            
+
         </div>    
         <div style="background-color: #0D0D0D;">
             <div>
@@ -81,6 +91,7 @@
             </div>
         </div>
         <script src="resources/JS/home.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     </body>
     <%@include  file="footer.jsp" %>

@@ -5,12 +5,14 @@
 package Controller;
 
 import Model.ConnectionDB;
+import Model.Mail;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import dto.GoogleUser_DTO;
 import dto.Reservation_DTO;
 import dto.User_DTO;
 import java.io.IOException;
+import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -98,6 +100,36 @@ public class seatReservationInsert extends HttpServlet {
                             + "INSERT INTO invoice_table (invoice,user_email) "
                             + "VALUES ("+invoice+",'"+normal_user.getEmail()+"')");
             }
+            
+//            ResultSet resultSet = ConnectionDB.execute("SELECT total FROM invoice_table WHERE invoice = '"+invoice+"'");
+//            String amount = resultSet.getString("total");
+            
+            String subject = "Feedback Form Submission";
+                String emailContent = "<!DOCTYPE html>" +
+                        "<html>" +
+                        "<head>" +
+                        "<style>" +
+                        "body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f9f9f9; padding: 20px; }" +
+                        ".container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 20px; }" +
+                        "h2 { color: #333333; font-size: 24px; text-align: center; }" +
+                        "p { font-size: 16px; color: #555555; }" +
+                        ".highlight { color: #007bff; font-weight: bold; }" +
+                        "footer { font-size: 14px; text-align: center; margin-top: 20px; color: #888888; }" +
+                        "</style>" +
+                        "</head>" +
+                        "<body>" +
+                        "<div class='container'>" +
+                        "<h2>Feedback Form Submission</h2>" +
+                        "<p><strong>Invoice Number:</strong> <span class='highlight'>" + invoice + "</span></p>" +
+                        "<p><strong>Email:</strong> <span class='highlight'>" + normal_user.getEmail() + "</span></p>" +
+                        "<p><strong>Name:</strong> <span class='highlight'>" + normal_user.getFirst_name() + " " + normal_user.getLast_name() + "</span></p>" +
+//                        "<p><strong>Amount:</strong> <span class='highlight'>" + amount + "</span></p>" +
+                        "</div>" +
+                        "</body>" +
+                        "</html>";
+
+                
+                Mail.sendMail("sudheeradilum@gmail.com", subject, emailContent);
             responseJson.addProperty("login_status", true);
             responseJson.addProperty("success", true);
 
@@ -163,6 +195,36 @@ public class seatReservationInsert extends HttpServlet {
                             + "INSERT INTO invoice_table (invoice,google_users_email) "
                             + "VALUES ("+invoice+",'"+google_user.getEmail()+"')");
             }
+            
+            //            ResultSet resultSet = ConnectionDB.execute("SELECT total FROM invoice_table WHERE invoice = '"+invoice+"'");
+//            String amount = resultSet.getString("total");
+            
+            String subject = "MoonBeams Cinema Invoice";
+                String emailContent = "<!DOCTYPE html>" +
+                        "<html>" +
+                        "<head>" +
+                        "<style>" +
+                        "body { font-family: Arial, sans-serif; line-height: 1.6; background-color: #f9f9f9; padding: 20px; }" +
+                        ".container { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 8px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); padding: 20px; }" +
+                        "h2 { color: #333333; font-size: 24px; text-align: center; }" +
+                        "p { font-size: 16px; color: #555555; }" +
+                        ".highlight { color: #007bff; font-weight: bold; }" +
+                        "footer { font-size: 14px; text-align: center; margin-top: 20px; color: #888888; }" +
+                        "</style>" +
+                        "</head>" +
+                        "<body>" +
+                        "<div class='container'>" +
+                        "<h2>MoonBeams Cinema Invoice</h2>" +
+                        "<p><strong>Invoice Number:</strong> <span class='highlight'>" + invoice + "</span></p>" +
+                        "<p><strong>Email:</strong> <span class='highlight'>" + google_user.getEmail() + "</span></p>" +
+                        "<p><strong>Name:</strong> <span class='highlight'>" + google_user.getName() + "</span></p>" +
+//                        "<p><strong>Amount:</strong> <span class='highlight'>" + amount + "</span></p>" +
+                        "</div>" +
+                        "</body>" +
+                        "</html>";
+
+                
+                Mail.sendMail("sudheeradilum@gmail.com", subject, emailContent);
             responseJson.addProperty("login_status", true);
             responseJson.addProperty("success", true);
 

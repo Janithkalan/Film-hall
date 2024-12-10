@@ -34,8 +34,8 @@
             <div class="newsletter-box">
                 <div class="newsletter-input">
                     <div class="newsletter"><p style="cursor: pointer;">Subscribe For Newsletter</p></div>
-                    <input type="email" placeholder="ENTER YOUR EMAIL">
-                    <button>SUBSCRIBE</button>
+                    <input type="email" placeholder="ENTER YOUR EMAIL" id="newsletter_email">
+                    <button onclick="newsletter()">SUBSCRIBE</button>
                 </div>
             </div>
         </div>
@@ -45,8 +45,9 @@
                     <li><a href="index.jsp">HOME</a></li>
                     <li><a href="#nav_moives_id">MOVIES</a></li>
                     <li><a href="deals.jsp">EXCLUSIVE DEALS</a></li>
-                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#nav_movies_id">ABOUT US</a></li>
                     <li><a href="contact.jsp">CONTACT US</a></li>
+                    <li><a href="#">BOOKING CANCELLATION</a></li>
                 </ul>
             </div>
             <div class="footer-policies">
@@ -64,6 +65,7 @@
             <p>&copy; 2024 Moonbeam Ltd. All rights reserved.</p>
         </div>
     </footer>
-
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <script src="resources/JS/newsletter.js"></script>
 </body>
 </html>

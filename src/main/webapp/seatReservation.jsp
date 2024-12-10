@@ -10,7 +10,39 @@
     String current_date = request.getParameter("param2");
     String current_time = request.getParameter("param3");
     String current_hall = request.getParameter("param4");
-%>
+
+    User_DTO normal_user1 = (User_DTO) request.getSession().getAttribute("user");
+    GoogleUser_DTO google_user1 = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+
+    if (normal_user1 == null && google_user1 == null) {
+
+%> 
+<html>
+    <head>
+        <title>Error</title>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        <style>
+            body {
+                background-color: black !important;
+                font-family: 'Poppins', sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+
+            swal("", "You need to login first", "error").then(() => {
+                window.location = "index.jsp";
+            });
+
+        </script>
+
+    </body>
+</html>
+
+
+<%} else {
+%> 
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -19,7 +51,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
         <title>Document</title>
         <style>
-            @import url('https://fonts.googleapis.com/css?family=Poppins');
             *{
                 margin: 0;
                 padding: 0;
@@ -563,9 +594,7 @@
                 </div>
                 <hr style="margin-top: 10px; margin-bottom: 10px;">
                 <div class="submit_btn">
-                    <button class="btn1" style="margin-right: 5px;">BACK</button>
-                    <!--<button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="seatReservationProcess(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>-->
-                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="navigateCheckout(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>)">CONTINUE</button>
+                    <button class="btn2" style="background-color: #261CBA; color: white; width: 100px; border: none;" onclick="navigateCheckout(<%= current_movie%>,<%= current_date%>, '<%= current_time%>',<%= current_hall%>),pending_update();">CONTINUE</button>
                 </div>
             </div>
         </div>
@@ -575,3 +604,10 @@
     </body>
     <%@include  file="footer.jsp" %>
 </html>
+<%    }
+
+
+%>
+
+
+

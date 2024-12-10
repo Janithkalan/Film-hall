@@ -1,4 +1,18 @@
+<%@page import="dto.GoogleUser_DTO"%>
+<%@page import="dto.User_DTO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+
+    User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
+    GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
+    boolean status1 = false;
+    if (normal_user == null && google_user == null) {
+        status1 = false;
+    } else {
+        status1 = true;
+    }
+
+%>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8">
@@ -98,7 +112,7 @@
         }
 
         .login {
-            margin-left: 50px;
+            margin-right: 50px;
         }
 
         .menu-icon {
@@ -119,6 +133,7 @@
             border: 1px solid white;
             background-color: white;
         }
+        
 
         @media (max-width: 1500px) {
             .nav__links li, a, button, input {
@@ -247,7 +262,7 @@
                     <li><a href="deals.jsp">EXCLUSIVE DEALS</a></li>
                     <li><a href="contact.jsp">CONTACT US</a></li>
                     <div class="search-container" style="margin-right: 100px;">
-                        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchResults()">
+                        <input type="text" id="search-input" placeholder="Search..." onkeyup="searchResults(<%= status1%>)">
                         <div id="dropdown" class="dropdown-content">
                             <div class="dropdown-item" id="dropdown-item">
                                 <a href="url" id="anchor">
@@ -258,8 +273,34 @@
                         </div>
                     </div>
                     <div class="buttons">
-                        <a class="buy_tickets" href="#"><button>BUY TICKETS</button></a>
-                        <a class="login" href="login.jsp">LOGIN</a>
+                        <a class="login" href="#">
+
+                            <% 
+                                if (normal_user == null && google_user == null ) {
+                                    out.println("");
+                                }  else if (normal_user != null){
+                                    out.println("Hi "+normal_user.getFirst_name()+" "+normal_user.getLast_name());
+                                } else if (google_user != null){
+                                    out.println("Hi "+google_user.getName());
+                                }
+                            
+                            %>
+                        </a>
+                            <a class="buy_tickets">
+                                <%                                
+                                if (normal_user == null && google_user == null ) {
+                                    %> 
+                                    <button onclick="login_process()">LOGIN</button>
+                                    <%
+                                }  else{
+                                    %> 
+                                    <button onclick="logout_process()">LOGOUT</button>
+                                    
+                                    <%
+                                }
+
+                            %>
+                            </a>
                     </div>
                 </ul>
                 <div class="menu-icon" id="menu-icon">☰</div>
@@ -275,6 +316,7 @@
             navLinks.classList.toggle('active');
         });
     </script>
+    <script src="resources/JS/logout.js"></script>
     <script src="resources/JS/search.js"></script>
 </body>
 </html>
