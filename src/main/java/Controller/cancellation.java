@@ -33,12 +33,9 @@ public class cancellation extends HttpServlet {
         responseObject.addProperty("success", false);
         ArrayList<Cancellation_DTO> cancellation_data = new ArrayList<>(); // Use the proper generic type
 
-        String text = request.getParameter("textResult"); 
-        int textResult = parseInt(text);
-        // Check for missing or invalid textResult parameter
-        
-       
         try {
+            String text = request.getParameter("textResult"); 
+            int textResult = parseInt(text);
             // Construct the SQL query
             String sqlQuery = "SELECT "
                     + "    invoice_table.invoice, "

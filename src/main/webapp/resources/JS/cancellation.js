@@ -8,47 +8,48 @@ var invoice;
 var user_name;
 
 async function load_data() {
+    if (event.key !== "Control") {
+        let textResult = document.getElementById("invoice-id").value;
 
-    let textResult = document.getElementById("invoice-id").value;
+        const response = await fetch("cancellation?textResult=" + textResult);
 
-    const response = await fetch("cancellation?textResult=" + textResult);
+        if (response.ok) {
+            const json = await response.json();
+            if (json.success) {
+                console.log(json.cancellation_data);
+                let data = json.cancellation_data[0]; // Access the first object in the array
 
-    if (response.ok) {
-        const json = await response.json();
-        if (json.success) {
-            console.log(json.cancellation_data);
-            let data = json.cancellation_data[0]; // Access the first object in the array
+                document.getElementById("name").value = data.name;
+                document.getElementById("email").value = data.email;
+                document.getElementById("phone").value = data.mobile;
+                document.getElementById("date").innerHTML = `&nbsp;&nbsp;${data.weekday} ${data.date} ${month}  `;
+                document.getElementById("hall").innerHTML = `&nbsp;&nbsp;&nbsp;${data.hall}&nbsp;&nbsp;&nbsp;`;
+                document.getElementById("time").innerHTML = ` ${data.show_time} `;
+                document.getElementById("title").innerHTML = data.movie_name;
+                document.getElementById("total_price").innerHTML = data.total_price;
+                price = data.total_price;
+                email = data.email;
+                invoice = data.invoice;
+                user_name = data.name;
 
-            document.getElementById("name").value = data.name;
-            document.getElementById("email").value = data.email;
-            document.getElementById("phone").value = data.mobile;
-            document.getElementById("date").innerHTML = `&nbsp;&nbsp;${data.weekday} ${data.date} ${month}  `;
-            document.getElementById("hall").innerHTML = `&nbsp;&nbsp;&nbsp;${data.hall}&nbsp;&nbsp;&nbsp;`;
-            document.getElementById("time").innerHTML = ` ${data.show_time} `;
-            document.getElementById("title").innerHTML = data.movie_name;
-            document.getElementById("total_price").innerHTML = data.total_price;
-            price = data.total_price;
-            email = data.email;
-            invoice = data.invoice;
-            user_name = data.name;
+                const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
+                seatsDiv.innerHTML = ""; // Clear any existing content
 
-            const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
-            seatsDiv.innerHTML = ""; // Clear any existing content
+                data.seat_id.forEach(seat => {
+                    // Create a new span element for each seat
+                    const seatSpan = document.createElement("span");
+                    seatSpan.classList.add("seat"); // Add the 'seat' class
+                    seatSpan.textContent = seat; // Set the text content to the seat ID
+                    seatsDiv.appendChild(seatSpan); // Append the span to the seats div
+                });
 
-            data.seat_id.forEach(seat => {
-                // Create a new span element for each seat
-                const seatSpan = document.createElement("span");
-                seatSpan.classList.add("seat"); // Add the 'seat' class
-                seatSpan.textContent = seat; // Set the text content to the seat ID
-                seatsDiv.appendChild(seatSpan); // Append the span to the seats div
-            });
+            } else {
+                // Handle the case when success is false
+            }
 
         } else {
-            // Handle the case when success is false
+            // Handle network or server errors
         }
-
-    } else {
-
     }
 }
 
@@ -76,6 +77,3 @@ async function coupon() {
         alert("Price must be greater than zero.");
     }
 }
-
-
-
