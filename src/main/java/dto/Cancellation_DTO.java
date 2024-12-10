@@ -15,6 +15,8 @@ public class Cancellation_DTO implements Serializable {
     private List<String> seat_id;
     private String hall;
     private String show_time;
+    private String movie_name;
+    private int total_price;
 
     // Constructor
     public Cancellation_DTO() {
@@ -92,6 +94,34 @@ public class Cancellation_DTO implements Serializable {
 
     public void setShow_time(String show_time) {
         this.show_time = show_time;
+    }
+
+    /**
+     * @return the movie_name
+     */
+    public String getMovie_name() {
+        return movie_name;
+    }
+
+    /**
+     * @param movie_name the movie_name to set
+     */
+    public void setMovie_name(String movie_name) {
+        this.movie_name = movie_name;
+    }
+
+    /**
+     * @return the total_price
+     */
+    public int getTotal_price() {
+        return total_price;
+    }
+
+    /**
+     * @param total_price the total_price to set
+     */
+    public void setTotal_price(int total_price) {
+        this.total_price = total_price;
     }
 
     

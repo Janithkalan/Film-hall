@@ -271,7 +271,7 @@
             </div>
             <h3>INVOICE DETAILS</h3>
             <div class="invoice-details">
-                <p class="mov-title">VENOM: THE LAST DANCE</p>
+                <p class="mov-title" id="title"></p>
                 <p class="location">Moonbeam Cinemas Multiplex - Havelock City Mall<span class="Date" id="date"></span> <span class="Imax" id="hall"></span><span class="Time" id="time"></span></p>
             </div>
             <div class="seat-info">
@@ -282,13 +282,13 @@
             </div>
             <div class="price">
                 <p>PRICE:  </p>
-                <P>4,165.45 [LKR]</P>
+                <P><span id="total_price">0 </span>.00 [LKR]</P>
             </div>
             <div class="cancel-section">
                 <input type="checkbox" id="confirm-cancel">
                 <label for="confirm-cancel">Confirm Cancellation</label>
             </div>
-            <button>CANCEL</button>
+            <button onclick="coupon()">CANCEL</button>
         </div>
         <script src="resources/JS/cancellation.js"></script>
     </body>
