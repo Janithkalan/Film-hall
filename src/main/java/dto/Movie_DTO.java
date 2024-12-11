@@ -21,6 +21,8 @@ public class Movie_DTO implements Serializable {
     private String trailer_link;
     
     private String movie_story;
+    
+    private int movie_status_id;
 
     public Movie_DTO() {
 
@@ -122,6 +124,20 @@ public class Movie_DTO implements Serializable {
      */
     public void setMovie_story(String movie_story) {
         this.movie_story = movie_story;
+    }
+
+    /**
+     * @return the movie_status_id
+     */
+    public int getMovie_status_id() {
+        return movie_status_id;
+    }
+
+    /**
+     * @param movie_status_id the movie_status_id to set
+     */
+    public void setMovie_status_id(int movie_status_id) {
+        this.movie_status_id = movie_status_id;
     }
 
 }
