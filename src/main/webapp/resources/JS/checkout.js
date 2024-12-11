@@ -37,13 +37,12 @@ function calculatePrice(total_price, hall_name) {
 
 }
 
-const hasSpace = / /;
 let temp_code = "";
 let coupon_status = false;
 
 async function coupon_search() {
 
-    if (event.key !== "Control") {
+    if (event.key !== "Control" && event.key !== " ") {
         if (document.getElementById("coupon").value != "") {
 
             const response = await fetch("coupon_code?code=" + document.getElementById("coupon").value);
@@ -195,7 +194,7 @@ async function paymentProcess(reservation_dto_json) {
         swal({
             title: "",
             text: "You must agree to terms and conditions",
-            icon: "error",
+            icon: "warning",
         });
     }
 

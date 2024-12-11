@@ -11,7 +11,6 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Invoice Page</title>
-        <link rel="stylesheet" href="styles.css">
         <style>
             @import url('https://fonts.googleapis.com/css?family=Poppins');
 

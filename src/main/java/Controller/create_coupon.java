@@ -7,6 +7,8 @@ package Controller;
 import Model.Mail;
 import Model.Validations;
 import Model.ConnectionDB;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.Integer.parseInt;
@@ -26,6 +28,9 @@ public class create_coupon extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Get the total price from the request
+        Gson gson = new Gson();
+        JsonObject responseObject = new JsonObject();
+        
         int total_price = Integer.parseInt(request.getParameter("total_price"));
         int invoice = Integer.parseInt(request.getParameter("invoice"));
         String email = request.getParameter("email");
@@ -42,7 +47,7 @@ public class create_coupon extends HttpServlet {
             ConnectionDB.execute(query);
             ConnectionDB.execute(query_2);
             ConnectionDB.execute(query_3);
-            response.getWriter().write("Coupon code " + coupon + " created successfully!");
+            responseObject.addProperty("message", "Cancellation success here is your coupon code: " + coupon);
             
             String subject = "Your Coupon Code is Here!";
             String emailContent = "<!DOCTYPE html>"
@@ -76,8 +81,10 @@ public class create_coupon extends HttpServlet {
 
         } catch (Exception e) {
             e.printStackTrace();
-            response.getWriter().write("Error: " + e.getMessage());
         }
+        response.setContentType("application/json");
+        response.getWriter().write(gson.toJson(responseObject));
+        
     }
 
     // Helper method to generate a random coupon code
