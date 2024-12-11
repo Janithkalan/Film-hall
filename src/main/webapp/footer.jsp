@@ -43,9 +43,9 @@
             <div class="footer-links">
                 <ul>
                     <li><a href="index.jsp">HOME</a></li>
-                    <li><a href="#nav_moives_id">MOVIES</a></li>
+                    <li><a href="index.jsp#nav_movies_id">MOVIES</a></li>
                     <li><a href="deals.jsp">EXCLUSIVE DEALS</a></li>
-                    <li><a href="#nav_movies_id">ABOUT US</a></li>
+                    <li><a href="about_us.jsp">ABOUT US</a></li>
                     <li><a href="contact.jsp">CONTACT US</a></li>
                     <li><a href="cancellation.jsp">BOOKING CANCELLATION</a></li>
                 </ul>
