@@ -40,6 +40,7 @@ public class search extends HttpServlet {
                 Movie_DTO movie_DTO = new Movie_DTO();
                 movie_DTO.setId(resultSet.getInt("idmovies"));
                 movie_DTO.setName(resultSet.getString("name"));
+                movie_DTO.setMovie_status_id(resultSet.getInt("movies_status_id"));
                 search_result_list.add(movie_DTO);
             }
 

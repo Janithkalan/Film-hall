@@ -254,7 +254,7 @@
 <body>
     <div class="nav_body">
         <header>
-            <a class="logo" href="index.jsp"><img src="resources/IMG/logo.png" alt="logo"></a>
+            <a class="logo" href="index.jsp" ><img src="resources/IMG/logo.png" alt="logo"></a>
             <nav>
                 <ul class="nav__links">
                     <li><a href="index.jsp">HOME</a></li>
@@ -265,7 +265,7 @@
                         <input type="text" id="search-input" placeholder="Search..." onkeyup="searchResults(<%= status1%>)">
                         <div id="dropdown" class="dropdown-content">
                             <div class="dropdown-item" id="dropdown-item">
-                                <a href="url" id="anchor">
+                                <a id="anchor">
                                     <img src="" alt="alt" id="resultImg" class="resultImg" style="width: 50px; height: 70px"/>
                                     <span id="resultName" class="resultName"></span>
                                 </a>
