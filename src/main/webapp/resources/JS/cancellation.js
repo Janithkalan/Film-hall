@@ -52,7 +52,7 @@ async function load_data() {
                 document.getElementById("hall").innerHTML = `&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;`;
                 document.getElementById("time").innerHTML = "";
                 document.getElementById("title").innerHTML = "";
-                document.getElementById("total_price").innerHTML = "";
+                document.getElementById("total_price").innerHTML = "0";
                 const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
                 seatsDiv.innerHTML = ""; // Clear any existing content
                 price = 0;
@@ -66,9 +66,9 @@ async function load_data() {
             document.getElementById("hall").innerHTML = `&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;`;
             document.getElementById("time").innerHTML = "";
             document.getElementById("title").innerHTML = "";
-            document.getElementById("total_price").innerHTML = "";
+            document.getElementById("total_price").innerHTML = "0";
             const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
-            seatsDiv.innerHTML = ""; // Clear any existing content
+                seatsDiv.innerHTML = ""; // Clear any existing content
             price = 0;
         }
 

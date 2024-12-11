@@ -47,7 +47,7 @@ async function searchResults(status1) {
 function direct_page(status1, status, movieId) {
     if (status1 && status === 1) {
         window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
-    }else if(status1 && status === 2){
+    }else if(status === 2){
         window.location.href = "comming_soon.jsp?param1=" + encodeURIComponent(movieId);
     } else {
         swal("", "You need to login first", "error");

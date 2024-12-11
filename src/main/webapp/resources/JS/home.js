@@ -1,19 +1,23 @@
 const slides = document.querySelectorAll(".slides img");
 const slideDescriptions = [
     "VENOM: THE LAST DANCE",
-    "DEADPOOL & WOLVERINE",
+    "MERRY LITTLE BATMAN",
     "TRANSFORMERS ONE"
 ];
 const slideLinks = [
     "https://www.youtube.com/watch?v=aFsGDcy-6hc",
-    "https://www.youtube.com/watch?v=73_1biulkYk",
+    "https://youtu.be/9PeJn8vca98",
     "https://www.youtube.com/watch?v=SIAqc-N_bd0"
 
 ];
 
-const sliderPages = {
+const sliderPages = [
+    "timeReservation.jsp?param1=2",
+    "timeReservation.jsp?param1=15",
+    "timeReservation.jsp?param1=3"
+];
+    
 
-}
 
 let slideIndex = 0;
 let intervalId = null;
@@ -25,6 +29,7 @@ function initializeSlider() {
         slides[slideIndex].classList.add("displaySlide");
         updateText(slideIndex);
         updateLink(slideIndex);
+        updateBook(slideIndex);
         intervalId = setInterval(nextSlide, 5000);
     }
 }
@@ -39,6 +44,7 @@ function showSlide(index) {
     slides[slideIndex].classList.add("displaySlide");
     updateText(slideIndex);
     updateLink(slideIndex);
+    updateBook(slideIndex);
 }
 
 function prevSlide() {
@@ -63,14 +69,14 @@ function updateText(index) {
 function updateLink(index) {
     const sliderLink = document.getElementById("sliderLink");
     if (sliderLink) {
-        sliderLink.href = slideLinks[index] || "#";
+        sliderLink.href = slideLinks[index];
     }
 }
 
 function updateBook(index) {
     const sliderPage = document.getElementById("sliderPage");
     if (sliderPage) {
-        sliderPage.href = sliderPages[index] || "#";
+        sliderPage.href = sliderPages[index];
     }
 }
 

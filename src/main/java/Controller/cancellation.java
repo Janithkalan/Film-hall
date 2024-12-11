@@ -63,6 +63,8 @@ public class cancellation extends HttpServlet {
                     + "LEFT JOIN user ON invoice_table.user_email = user.email "
                     + "INNER JOIN weekdays ON month_table.weekdays_id = weekdays.id "
                     + "WHERE seat_reservation.invoice = '" + textResult + "'";
+            
+            
 
             // Log the query for debugging
             System.out.println("Executing SQL: " + sqlQuery);

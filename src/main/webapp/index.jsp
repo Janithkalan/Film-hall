@@ -50,12 +50,12 @@
         <div class="slider" >
             <div class="more">
                 <p id="text"></p>
-                <a id="sliderPage" href="#" target="_self"><span id="buy"><img src="resources/IMG/ticket.png" alt=""><span>BUY TICKETS ONLINE</span></span></a>
-                <a id="sliderLink" href="#" target="_blank"><span id="watch"><img src="resources/IMG/show.png" alt=""><span>WATCH TRAILER</span></span></a>
+                <a id="sliderPage" href="" target="_self"><span id="buy"><img src="resources/IMG/ticket.png" alt=""><span>BUY TICKETS ONLINE</span></span></a>
+                <a id="sliderLink" href="" target="_blank"><span id="watch"><img src="resources/IMG/show.png" alt=""><span>WATCH TRAILER</span></span></a>
             </div>
             <div class="slides" style="z-index:2;">
                 <img class="slide" id="f" src="resources/IMG/1.png" alt="img_1">
-                <img class="slide" id="f" src="resources/IMG/2.jpg" alt="img_2">
+                <img class="slide" id="f" src="resources/IMG/2.png" alt="img_2">
                 <img class="slide" id="f" src="resources/IMG/3.png" alt="img_3">
             </div>
             <button class="prev" onclick="prevSlide()">&#10094</button>
