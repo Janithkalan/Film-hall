@@ -16,10 +16,21 @@ async function newsletter() {
     } else {
         const response = await fetch("newsletter?email=" + email);
         if (response.ok) {
-            
-        swal("", "Thank You for Subscribing to Newsletter", "success").then(() => {
-                document.getElementById("newsletter_email").value = "";
-            });
+            const json = await response.json();
+            if (json.success) {
+                swal("", "Thank You for Subscribing to Newsletter", "success").then(() => {
+                    document.getElementById("newsletter_email").value = "";
+                });
+            } else {
+
+                swal({
+                    title: "",
+                    text: json.message,
+                    icon: "error",
+                });
+            }
+
+
         }
     }
 
