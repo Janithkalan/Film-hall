@@ -47,7 +47,6 @@ public class create_coupon extends HttpServlet {
             ConnectionDB.execute(query);
             ConnectionDB.execute(query_2);
             ConnectionDB.execute(query_3);
-            responseObject.addProperty("message", "Cancellation success here is your coupon code: " + coupon);
             //send email
             String subject = "Coupon Code - Moonbeams Cinemas";
             String emailContent = "<!DOCTYPE html>"

@@ -113,7 +113,7 @@ async function coupon() {
                         document.getElementById("total_price").innerHTML = price;
                         
                         const json = await response.json();
-                        swal("", json.message, "success").then(() => {
+                        swal("", "Coupon code sent to your email", "success").then(() => {
                             window.location = "index.jsp";
                         });
                     }
