@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
-
+//add newsletter subscribers
 async function newsletter() {
     let email = document.getElementById("newsletter_email").value;
 

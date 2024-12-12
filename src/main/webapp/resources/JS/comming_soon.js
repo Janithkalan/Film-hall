@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 const movieID = urlParams.get('param1');
-console.log(movieID);
+
 
 async function comingSoonDetails() {
     const response = await fetch("comming_soon");
@@ -8,7 +8,7 @@ async function comingSoonDetails() {
     if (response.ok) {
         const json = await response.json();
 
-        if (json.success) {
+        if (json.success) {//load comming soon movie details
             let movie_title = document.getElementById("movie_title");
             let movie_description = document.getElementById("movie_description");
             let movie_rating = document.getElementById("movie_rating");

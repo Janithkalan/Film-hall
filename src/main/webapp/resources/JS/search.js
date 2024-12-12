@@ -19,7 +19,7 @@ async function searchResults(status1) {
 
             if (json.success) {
                 dropdown.innerHTML = "";
-
+                //movie cloning
                 json.movie_list.forEach(movie => {
                     let dropdown_item_clone = dropdown_item.cloneNode(true);
                     dropdown_item_clone.querySelector(".resultImg").src = "resources/IMG/movies_posters/" + movie.id + ".png";
@@ -33,7 +33,6 @@ async function searchResults(status1) {
 
             } else {
                 dropdown.style.display = 'none';
-                console.log("not found");
             }
 
         } else {
@@ -44,7 +43,8 @@ async function searchResults(status1) {
 
 }
 
-function direct_page(status1, status, movieId) {
+function direct_page(status1, status, movieId) {//movie navigation
+    //check user session
     if (status1 && status === 1) {
         window.location.href = "timeReservation.jsp?param1=" + encodeURIComponent(movieId);
     }else if(status === 2){

@@ -4,7 +4,7 @@
  */
 
 async function logout_process() {
-
+    //logout process
     const response = await fetch("logout");
 
     if (response.ok) {

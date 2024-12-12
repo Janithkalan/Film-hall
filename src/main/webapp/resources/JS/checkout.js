@@ -12,7 +12,7 @@ function calculatePrice(total_price, hall_name) {
     let vat;
     let conv;
 
-
+    //check what is the hall
     if (hall_name == "IMAX") {
         document.getElementById("vat").innerHTML = 200;
         document.getElementById("conv").innerHTML = 500;
@@ -32,7 +32,7 @@ function calculatePrice(total_price, hall_name) {
     }
 
     final_price = conv + vat + total_price;
-    fixed_price = final_price;
+    fixed_price = final_price; // take initial value in case coupon code invalid
     document.getElementById("final_price").innerHTML = final_price;
 
 }
@@ -41,7 +41,7 @@ let temp_code = "";
 let coupon_status = false;
 
 async function coupon_search() {
-
+    //ignore control key and spacebar
     if (event.key !== "Control" && event.key !== " ") {
         if (document.getElementById("coupon").value != "") {
 
@@ -55,7 +55,8 @@ async function coupon_search() {
                     final_price = final_price - json.amount;
                     temp_code = json.code;
                     coupon_status = true;
-
+                    
+                    //add service fee for coupon users
                     if (final_price <= 0) {
                         document.getElementById("final_price").innerHTML = service_fee;
                     } else {
@@ -63,6 +64,7 @@ async function coupon_search() {
                     }
 
                 } else {
+                    //if coupon is invalid
                     final_price = fixed_price;
                     document.getElementById("final_price").innerHTML = fixed_price;
                     coupon_status = false;
@@ -82,16 +84,16 @@ async function coupon_search() {
 
 
 async function paymentProcess(reservation_dto_json) {
-
+    
     if (final_price <= 0) {
-        if (temp_code != "") {
+        if (temp_code != "") {//get the user is coupon user or not
             final_price = service_fee;
-            coupon_status == true;
+            coupon_status == true; 
 
         }
 
     }
-
+    //check user agreed to terms
     if (document.getElementById("terms").checked) {
         const response = await fetch("checkout?final_price=" + final_price);
 
@@ -102,7 +104,7 @@ async function paymentProcess(reservation_dto_json) {
             // Payment completed. It can be a successful failure.
             payhere.onCompleted = async function onCompleted(orderId) {
 
-                if (coupon_status == true) {
+                if (coupon_status == true) {// if user is coupon user
                     const response3 = await fetch("remove_coupon?code=" + temp_code);
 
                     if (response3.ok) {
@@ -123,7 +125,7 @@ async function paymentProcess(reservation_dto_json) {
                             }
                         }
                     }
-                } else {
+                } else {// if user is not coupon user
                     const reservation_dto_json_encoded = encodeURIComponent(JSON.stringify(reservation_dto_json));
                     const response = await fetch("seatReservationInsert?reservation_dto_json=" + reservation_dto_json_encoded + "&invoice=" + orderId);
                     const response2 = await fetch("price_insert?final_price=" + final_price + "&invoice=" + orderId);
@@ -160,7 +162,7 @@ async function paymentProcess(reservation_dto_json) {
                 });
             };
 
-            // Put the payment variables here
+            
             var payment = {
                 "sandbox": true,
                 "merchant_id": "1228948",

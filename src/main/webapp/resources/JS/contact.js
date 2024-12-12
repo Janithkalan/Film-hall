@@ -4,7 +4,7 @@
  */
 
 async function submit(){
-    
+    //user data
     const contact_dto = {
         name:document.getElementById("name").value,
         email:document.getElementById("email").value,
@@ -16,7 +16,7 @@ async function submit(){
             "contact",
             {
                 method: "POST",
-                body: JSON.stringify(contact_dto),
+                body: JSON.stringify(contact_dto),//send user data
                 headers: {
                     "Content-Type": "application/json"
                 }

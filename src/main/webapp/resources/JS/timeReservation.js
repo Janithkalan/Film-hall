@@ -27,7 +27,7 @@ async function timeReservationDetails() {
             movie_dropdown.innerHTML = "";
             date_dropdown.innerHTML = "";
 
-
+            //movie dropdown load
             json.timeReservationDetails.forEach(movie => {
                 let option = document.createElement("option");
                 option.value = movie.id;
@@ -35,7 +35,7 @@ async function timeReservationDetails() {
                 movie_dropdown.appendChild(option);
             });
 
-            
+            //on movie change time dropdown and body load
             movie_dropdown.addEventListener("change", () => {
                 let selectedId = parseInt(movie_dropdown.value);
                 let selectedMovie = json.timeReservationDetails.find(movie => movie.id === selectedId);
@@ -52,8 +52,8 @@ async function timeReservationDetails() {
                 date_dropdown.innerHTML = "";
                 let addedDates = new Set();
                 json.timeTableDetails.forEach(schedule => {
-                    if (schedule.movie_id === selectedId && !addedDates.has(schedule.date)) {  // && schedule.date >= today_date
-                        addedDates.add(schedule.date);                                         // add this code later inside the if condition
+                    if (schedule.movie_id === selectedId && !addedDates.has(schedule.date)) {  
+                        addedDates.add(schedule.date);                                         
                         let option = document.createElement("option");
                         option.value = schedule.date;
                         option.text = `${schedule.day} ${schedule.date} ${month}`;
@@ -106,7 +106,7 @@ async function loadBtn() {
             let gold_added = false;
             let digital_added = false;
 
-
+            //load buttons for movies screen times
             json.timeTableDetails.forEach(item => {
                 if (item.hall_id === 3) { // if digital 3d
                     let digital_btn_clone = digital_btn.cloneNode(true);
@@ -126,7 +126,7 @@ async function loadBtn() {
                 }
 
             });
-
+            //no data validation
             if (!imax_added) {
                 let no_imax_message = document.createElement("p");
                 no_imax_message.textContent = "No IMAX shows available";
@@ -164,7 +164,7 @@ function navigate_hall(current_hall) {
 
     var current_movie = document.getElementById("movie_dropdown").value;
     var current_date = document.getElementById("date_dropdown").value;
-    
+    //get time from buttons
     if (current_hall === 1){
         var current_time = document.getElementById("imax_btn").innerHTML;
     } else if (current_hall === 2){

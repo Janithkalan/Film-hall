@@ -63,7 +63,7 @@ function removeSeatButton(seatName) {
 
 document.querySelectorAll(".seat").forEach(function (seat) {
     seat.addEventListener("click", function () {
-
+        //price calculation
         if (document.getElementById("hall_name").innerHTML == "IMAX") {
             if (seat.classList.contains("selected")) {
                 price_change += 4000.00;
@@ -109,7 +109,7 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
         const json = await response.json();
 
         if (json.success) {
-
+            //load seat reservation page details
             document.getElementById("date").innerHTML = current_date + ", " + month;
 
             document.getElementById("movie_name").innerHTML = json.movie_name;
@@ -118,13 +118,17 @@ async function loadSeats(current_movie, current_date, current_time, current_hall
 
 
             json.seatReservationDetails.forEach(reservation => {
-
+                //add seat status to seat
                 if (reservation.seat_status === 3) {
 
                     let temp_btn = document.getElementById("" + reservation.seat_id + "");
                     temp_btn.classList.add("reservedSeat");
                     temp_btn.disabled = true;
 
+                } else if (reservation.seat_status === 2){
+                    let temp_btn = document.getElementById("" + reservation.seat_id + "");
+                    temp_btn.classList.add("unavailableSeat");
+                    temp_btn.disabled = true;
                 }
 
             });
@@ -169,7 +173,7 @@ async function seatReservationProcess(current_movie, current_date, current_time,
 
 
 async function navigateCheckout(current_movie, current_date, current_time, current_hall) {
-    
+    //validate seat count
     if (selectedSeats.length == 0){
         
         swal("", "You need to select a seat", "error");
