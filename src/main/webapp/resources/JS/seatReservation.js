@@ -167,13 +167,8 @@ async function seatReservationProcess(current_movie, current_date, current_time,
 }
 
 
-function pending_update(){
-    
-    
-    
-}
 
-function navigateCheckout(current_movie, current_date, current_time, current_hall) {
+async function navigateCheckout(current_movie, current_date, current_time, current_hall) {
     
     if (selectedSeats.length == 0){
         
@@ -195,6 +190,7 @@ function navigateCheckout(current_movie, current_date, current_time, current_hal
         seat_id: selectedSeats,
         seat_status: 3
     };
+    
 
 
     window.location.href = "checkout.jsp?param1=" + encodeURIComponent(moive_name) +

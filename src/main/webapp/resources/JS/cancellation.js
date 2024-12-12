@@ -8,8 +8,8 @@ var invoice;
 var user_name;
 
 async function load_data() {
-
-    if (event.key !== "Control" && event.key !== " ") {
+    
+    if (event.key !== "Control" && event.key !== " ") {//ignore Control key and spacebar
 
         let textResult = document.getElementById("invoice-id").value;
 
@@ -18,7 +18,7 @@ async function load_data() {
         if (response.ok) {
             const json = await response.json();
             if (json.success) {
-                let data = json.cancellation_data[0]; // Access the first object in the array
+                let data = json.cancellation_data[0]; 
 
                 document.getElementById("name").value = data.name;
                 document.getElementById("email").value = data.email;
@@ -32,19 +32,20 @@ async function load_data() {
                 email = data.email;
                 invoice = data.invoice;
                 user_name = data.name;
-
-                const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
-                seatsDiv.innerHTML = ""; // Clear any existing content
-
+                
+                // Clear any existing content
+                const seatsDiv = document.querySelector(".seats");
+                seatsDiv.innerHTML = ""; 
+                // Create a new span element for each seat
                 data.seat_id.forEach(seat => {
-                    // Create a new span element for each seat
                     const seatSpan = document.createElement("span");
-                    seatSpan.classList.add("seat"); // Add the 'seat' class
-                    seatSpan.textContent = seat; // Set the text content to the seat ID
-                    seatsDiv.appendChild(seatSpan); // Append the span to the seats div
+                    seatSpan.classList.add("seat"); 
+                    seatSpan.textContent = seat; 
+                    seatsDiv.appendChild(seatSpan);
                 });
 
             } else {
+                //if results not found
                 document.getElementById("name").value = "";
                 document.getElementById("email").value = "";
                 document.getElementById("phone").value = "";
@@ -53,12 +54,13 @@ async function load_data() {
                 document.getElementById("time").innerHTML = "";
                 document.getElementById("title").innerHTML = "";
                 document.getElementById("total_price").innerHTML = "0";
-                const seatsDiv = document.querySelector(".seats"); // Select the div with class 'seats'
-                seatsDiv.innerHTML = ""; // Clear any existing content
+                const seatsDiv = document.querySelector(".seats"); 
+                seatsDiv.innerHTML = ""; 
                 price = 0;
             }
 
         } else {
+            //if server error
             document.getElementById("name").value = "";
             document.getElementById("email").value = "";
             document.getElementById("phone").value = "";
@@ -78,7 +80,7 @@ async function load_data() {
 }
 
 async function coupon() {
-
+    //invoice field validation
     if (document.getElementById("invoice-id").value === "") {
 
         swal({
@@ -100,7 +102,7 @@ async function coupon() {
         if (document.getElementById("confirm-cancel").checked) {
             if (price > 0) {
                 try {
-                    // Send the coupon code and total price to the servlet
+                    
                     const response = await fetch(`create_coupon?total_price=${encodeURIComponent(price)}&email=${encodeURIComponent(email)}&invoice=${encodeURIComponent(invoice)}&user_name=${encodeURIComponent(user_name)}`);
 
                     if (!response.ok) {
@@ -109,7 +111,7 @@ async function coupon() {
                         seatsDiv.innerHTML = "";
                         price = 0;
                         document.getElementById("total_price").innerHTML = price;
-                        // Read the response from the servlet
+                        
                         const json = await response.json();
                         swal("", json.message, "success").then(() => {
                             window.location = "index.jsp";
