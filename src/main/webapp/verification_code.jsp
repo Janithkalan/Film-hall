@@ -199,24 +199,20 @@
 <body>
     <div class="container">
         <div class="title">
-            <h1>LOGIN</h1>
+            <h1>Reset Password</h1>
         </div>
     </div>
     <div class="form-wrapper">
         <div class="form">
                 <label class="label">Email Address</label><br>
                 <input type="email" placeholder="Enter Email Address" id="email"><i class="fa-solid fa-circle" style="color: #261cba;"></i><br>
-                <label class="label">Password</label><br>
-                <input type="password" placeholder="Enter Password" id="password"><i class="fa-solid fa-circle" style="color: #261cba;"></i><br>
-                <p style="text-align: right; margin-right: 20px;"><a href="verification_code.jsp">Forgot Password?</a></p>
-                <button class="login" onclick="login()"><span class="text">LOGIN</span></button><br>
-                <button class="google" onclick="window.location.href = '/CinemaHall/google_oauth';"><img src="resources/IMG/google.png" alt=""><span class="text">Continue With Google</span></button>
-                <p>Don't Have An Account?<a href="signup.jsp">CREATE NEW</a></p>
+                <button class="login" onclick="sendCode()"><span class="text">SEND CODE</span></button>
+                
            
         </div>
     </div>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="resources/JS/login.js"></script>
+    <script src="resources/JS/verification_code.js"></script>
 </body>
 </html>
 

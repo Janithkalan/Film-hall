@@ -208,7 +208,7 @@
             <div class="input_btn">
                 <button onclick="createAccount()">LOGIN</button>
             </div>
-            <p>Already have an account? <a href="#">LOGIN</a></p>
+            <p>Already have an account? <a href="login.jsp">LOGIN</a></p>
        
         </div>
     </div>
