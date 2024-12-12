@@ -5,7 +5,7 @@
 
     User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
     GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
-    boolean status1 = false;
+    boolean status1 = false; // user session status
     if (normal_user == null && google_user == null) {
         status1 = false;
     } else {

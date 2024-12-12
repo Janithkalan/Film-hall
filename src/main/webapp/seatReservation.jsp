@@ -13,9 +13,9 @@
 
     User_DTO normal_user1 = (User_DTO) request.getSession().getAttribute("user");
     GoogleUser_DTO google_user1 = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
-
+    //user session validation
     if (normal_user1 == null && google_user1 == null) {
-
+    //redirect to login message
 %> 
 <html>
     <head>

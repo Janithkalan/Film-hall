@@ -23,9 +23,9 @@
 
     User_DTO normal_user1 = (User_DTO) request.getSession().getAttribute("user");
     GoogleUser_DTO google_user1 = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
-
+    //validate sessions
     if (normal_user1 == null && google_user1 == null) {
-
+    //redirect to need to login message
 %> 
 <html>
     <head>
@@ -41,7 +41,7 @@
     </head>
     <body>
         <script>
-
+            
             swal("", "You need to login first", "error").then(() => {
                 window.location = "index.jsp";
             });
