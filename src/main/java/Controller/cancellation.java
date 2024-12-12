@@ -35,12 +35,12 @@ public class cancellation extends HttpServlet {
 
         String text = request.getParameter("textResult"); 
         
-        // Check for missing or invalid textResult parameter
+        
         
        
         try {
             int textResult = parseInt(text);
-            // Construct the SQL query
+            
             String sqlQuery = "SELECT "
                     + "    invoice_table.invoice, "
                     + "    COALESCE(google_users.name, CONCAT(user.fname, ' ', user.lname)) AS name, "
@@ -65,14 +65,10 @@ public class cancellation extends HttpServlet {
                     + "WHERE seat_reservation.invoice = '" + textResult + "'";
             
             
-
-            // Log the query for debugging
-            System.out.println("Executing SQL: " + sqlQuery);
-
-            // Execute the SQL query
+            
             ResultSet resultSet = ConnectionDB.execute(sqlQuery);
 
-            // Check if there are any records in the result set
+            // Check if there are any records
             if (!resultSet.isBeforeFirst()) {
                 responseObject.addProperty("message", "No records found for invoice " + textResult);
                 response.setContentType("application/json");
@@ -80,14 +76,14 @@ public class cancellation extends HttpServlet {
                 return;
             }
             Cancellation_DTO cancellationDTO = new Cancellation_DTO();
-            // Process each record from the result set
+            
             while (resultSet.next()) {
                 
                 // Set values for cancellationDTO
                 cancellationDTO.setInvoice(resultSet.getInt("invoice_table.invoice"));
                 cancellationDTO.setName(resultSet.getString("name"));
                 cancellationDTO.setEmail(resultSet.getString("email"));
-                cancellationDTO.setMobile(resultSet.getString("mobile"));  // Ensure "mobile" is properly handled
+                cancellationDTO.setMobile(resultSet.getString("mobile"));
                 cancellationDTO.setDate(resultSet.getInt("month_id"));
                 cancellationDTO.setWeekday(resultSet.getString("weekdays.weekday"));
                 cancellationDTO.setHall(resultSet.getString("hall_table.hall_name"));
@@ -95,23 +91,23 @@ public class cancellation extends HttpServlet {
                 cancellationDTO.setMovie_name(resultSet.getString("movies.name"));
                 cancellationDTO.setTotal_price(resultSet.getInt("invoice_table.total"));
 
-                // Add seat_id to the list (if multiple seats for the same invoice)
+                
                 String seatId = resultSet.getString("seat_id");
-                cancellationDTO.getSeat_id().add(seatId); // Add seat_id to the list
+                cancellationDTO.getSeat_id().add(seatId);
     
             }
-            // Add the populated DTO to the cancellation data list
+            
             cancellation_data.add(cancellationDTO);
-            // Add the cancellation_data to the response object
+            
             responseObject.add("cancellation_data", gson.toJsonTree(cancellation_data));
             responseObject.addProperty("success", true);
 
         } catch (Exception e) {
             e.printStackTrace();
-            responseObject.addProperty("error", e.getMessage()); // Add error to response
+            responseObject.addProperty("error", e.getMessage()); 
         }
 
-        // Send the response as JSON
+        
         response.setContentType("application/json");
         response.getWriter().write(gson.toJson(responseObject));
     }

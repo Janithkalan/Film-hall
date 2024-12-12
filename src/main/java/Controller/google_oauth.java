@@ -37,21 +37,20 @@ public class google_oauth extends HttpServlet {
         String code = request.getParameter("code");
 
         if (code == null || code.isEmpty()) {
-            // Step 1: If the code is missing, redirect to Google OAuth 2.0 consent page
+            //If the code is missing, redirect to Google OAuth 2.0 consent page
             String authUrl = buildAuthUrl();
             response.sendRedirect(authUrl);
         } else {
             try {
-                // Step 2: Exchange authorization code for an access token
+                //Exchange authorization code for an access token
                 String accessToken = exchangeCodeForAccessToken(code);
 
-                // Step 3: Fetch user information using the access token
+                //Fetch user information using the access token
                 String userInfo = fetchUserInfo(accessToken);
 
-                // Step 4: Process user information
+                //Process user information
                 processUser(userInfo, request, response);
             } catch (Exception e) {
-                // Handle errors, such as token exchange or user info fetch failure
                 e.printStackTrace();
                 response.getWriter().write("Error: " + e.getMessage());
             }
@@ -96,7 +95,7 @@ public class google_oauth extends HttpServlet {
     }
 
     private void processUser(String userInfo, HttpServletRequest request, HttpServletResponse response) throws IOException, SQLException {
-        // Parse JSON (example with Gson)
+        
         com.google.gson.JsonObject jsonObject = com.google.gson.JsonParser.parseString(userInfo).getAsJsonObject();
         GoogleUser_DTO user = new GoogleUser_DTO(jsonObject.get("email").getAsString(),jsonObject.get("name").getAsString());
 
@@ -116,7 +115,7 @@ public class google_oauth extends HttpServlet {
                 }
             }
             if (resultSet != null) {
-                resultSet.close(); // Close the ResultSet to prevent resource leaks
+                resultSet.close(); // Close the ResultSet
             }
         } catch (Exception e) {
             e.printStackTrace();

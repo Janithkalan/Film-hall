@@ -36,7 +36,7 @@ public class seatReservationInsert extends HttpServlet {
         String reservation_dto_json = request.getParameter("reservation_dto_json");
         Reservation_DTO reservation_DTO = gson.fromJson(reservation_dto_json, Reservation_DTO.class);
 
-        String seats[] = reservation_DTO.getSeat_id();
+        String seats[] = reservation_DTO.getSeat_id(); //get seat array
 
         User_DTO normal_user = (User_DTO) request.getSession().getAttribute("user");
 
@@ -45,13 +45,13 @@ public class seatReservationInsert extends HttpServlet {
         responseJson.addProperty("login_status", false);
 
         int invoice = Integer.parseInt(request.getParameter("invoice"));
-
+        //check user is normal or google
         if (normal_user != null) {
 
             try {
-
+                //check reservation time
                 if (reservation_DTO.getScreen_time().equals("10:00AM")) {
-                    for (String seat : seats) {
+                    for (String seat : seats) { //read seat seats array
 
                         ConnectionDB.execute(""
                                 + "INSERT INTO seat_reservation (invoice,hall_table_id,screen_times_id,month_table_id,movies_idmovies,seat_id,seat_status_id) "
@@ -100,8 +100,8 @@ public class seatReservationInsert extends HttpServlet {
                             + "VALUES (" + invoice + ",'" + normal_user.getEmail() + "')");
                 }
 
-                
-                String seat_list_string = String.join(", ", seats);
+                   //send email
+                String seat_list_string = String.join(", ", seats); //convert seats array to string
                 String user_email = normal_user.getEmail();
                 String first_name = normal_user.getFirst_name();
                 String second_name = normal_user.getLast_name();

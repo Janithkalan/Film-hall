@@ -32,7 +32,7 @@ public class signup extends HttpServlet {
 
         Gson gson = new Gson();
         User_DTO user_DTO = gson.fromJson(request.getReader(), User_DTO.class);
-
+        //validations
         if (user_DTO.getFirst_name().isEmpty()) {
             responseJson.addProperty("message", "Name cannot be empty");
         } else if (!user_DTO.getFirst_name().matches("^[a-zA-Z]+$")) {

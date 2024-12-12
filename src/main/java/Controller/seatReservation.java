@@ -38,7 +38,6 @@ public class seatReservation extends HttpServlet {
         String current_movie = request.getParameter("current_movie");
         String current_hall = request.getParameter("current_hall");
 
-//        current_date=1&current_time=1&current_movie=2&current_hall=1
         try {
             ResultSet resultSet = ConnectionDB.execute(""
                     + "SELECT seat.id, seat_status.id, hall_table.id, screen_times.id, month_table.id, movies.idmovies, seat_price.price AS price "

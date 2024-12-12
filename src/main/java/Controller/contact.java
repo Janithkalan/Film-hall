@@ -51,7 +51,7 @@ public class contact extends HttpServlet {
             } else if (message.isEmpty()) {
                 responseJson.addProperty("message", "Message cannot be empty");
             } else {
-                
+                //send email
                 String subject = "Customer Feedback";
                 
                 String emailContent = "<!DOCTYPE html>"

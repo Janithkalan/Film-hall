@@ -27,7 +27,7 @@ public class login extends HttpServlet {
 
         Gson gson = new Gson();
         User_DTO user_DTO = gson.fromJson(request.getReader(), User_DTO.class);
-
+        //validations
         if (user_DTO.getEmail().isEmpty()) {
             responseJson.addProperty("message", "Email cannot be empty!");
         } else if (user_DTO.getPassword().isEmpty()) {
@@ -35,10 +35,8 @@ public class login extends HttpServlet {
         } else if (!Validations.isEmailValid(user_DTO.getEmail())) {
             responseJson.addProperty("message", "Enter Valid E-mail");
         } else {
-//            responseJson.addProperty("success", true);
-//            responseJson.addProperty("message", "Success");
-//            
             try {
+                //check the user is exist
                 ResultSet resultSet = ConnectionDB.execute("SELECT * FROM user WHERE email ='" + user_DTO.getEmail() + "' "
                         + "AND password = '" + user_DTO.getPassword() + "'");
                 if (resultSet.next()) {

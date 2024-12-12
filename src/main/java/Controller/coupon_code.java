@@ -37,7 +37,7 @@ public class coupon_code extends HttpServlet {
 
         try {
             ResultSet resultSet = ConnectionDB.execute("SELECT * FROM coupon WHERE coupon = '" + code + "'");
-            ResultSet resultSet2 = ConnectionDB.execute("SELECT invoice.total FROM invoice WHERE invoice = '" + code + "'");
+//            ResultSet resultSet2 = ConnectionDB.execute("SELECT invoice.total FROM invoice WHERE invoice = '" + code + "'");
 
             if (resultSet.next()) {
 

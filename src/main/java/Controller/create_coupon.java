@@ -27,7 +27,7 @@ public class create_coupon extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get the total price from the request
+        
         Gson gson = new Gson();
         JsonObject responseObject = new JsonObject();
 
@@ -48,7 +48,7 @@ public class create_coupon extends HttpServlet {
             ConnectionDB.execute(query_2);
             ConnectionDB.execute(query_3);
             responseObject.addProperty("message", "Cancellation success here is your coupon code: " + coupon);
-
+            //send email
             String subject = "Coupon Code - Moonbeams Cinemas";
             String emailContent = "<!DOCTYPE html>"
                     + "<html>"

@@ -32,7 +32,7 @@ public class search extends HttpServlet {
         responseObject.addProperty("success", false);
         ArrayList search_result_list = new ArrayList();
 
-        String textResult = request.getParameter("textResult");
+        String textResult = request.getParameter("textResult");//search bar text
 
         try {
             ResultSet resultSet = ConnectionDB.execute("SELECT * FROM movies WHERE name LIKE '%" + textResult + "%'");

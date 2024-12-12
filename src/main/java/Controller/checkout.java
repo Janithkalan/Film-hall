@@ -40,15 +40,15 @@ public class checkout extends HttpServlet {
         String last_name = null;
         
         Random random = new Random();
-        int invoice = random.nextInt(1000000) + 1;
-
+        int invoice = random.nextInt(1000000) + 1; //generate invoice
+        //check user is normal or google
         if (normal_user != null) {
 
             first_name = normal_user.getFirst_name();
             last_name = normal_user.getLast_name();
 
         } else if (google_user != null) {
-
+            //split the full name into parts
             String full_name = google_user.getName();
             String[] words = full_name.split(" ");
             first_name = words[0];
@@ -84,13 +84,13 @@ public class checkout extends HttpServlet {
             throw new ServletException("MD5 algorithm not found", e);
         }
 
-        // Set response content type to application/json
+        
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
         out.print(gson.toJson(responseJson));
         out.flush();
     }
-
+    //hash generation
     private String md5(String input) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("MD5");
         md.update(input.getBytes());

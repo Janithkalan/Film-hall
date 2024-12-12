@@ -39,6 +39,7 @@ public class load_movies extends HttpServlet {
         GoogleUser_DTO google_user = (GoogleUser_DTO) request.getSession().getAttribute("google_user");
         
         responseJson.addProperty("login_status", false);
+        //check uesr is normal or google
         if (normal_user != null) {
             
             responseJson.addProperty("user_name", normal_user.getFirst_name() + " " + normal_user.getLast_name());
