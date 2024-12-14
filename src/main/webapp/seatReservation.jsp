@@ -573,11 +573,6 @@
 
                     <p>Unavailable</p>
                 </div>
-                <div class="availability">
-                    <button class="b_btn pendingB" style="width: 20px; height: 20px; background-color: #AD069D; border: none;"></button>
-
-                    <P>Pending</P>
-                </div>
                 <hr>
                 <p style="margin-bottom: 20px; margin-top: 10px; margin-left: 20px;"><span id="seat-count" class="count">0</span> ticket(s) selected.Please select seats</p>
                 <div class="total_bar">
